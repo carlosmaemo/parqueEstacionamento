@@ -5,10 +5,11 @@
  */
 package telas;
 
-import bean.UsuarioBean;
+import dao.UsuarioDao;
 import excepcao.ErroSistema;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import modelo.Usuario;
 
 /**
@@ -17,9 +18,6 @@ import modelo.Usuario;
  */
 public class Login extends javax.swing.JFrame {
 
-        Usuario usuario = new Usuario();
-        UsuarioBean usuarioBean = new UsuarioBean();
-    
     /**
      * Creates new form TelaLogin
      */
@@ -156,24 +154,37 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_inputSenhaActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-                
-        usuario.setUsername(inputUsuario.getText());
-        usuario.setPassword(inputSenha.getText());
-        
-        try {
-            if (usuarioBean.entrar(usuario) == false) {
-                dispose();
+
+        try {                                          
+            
+            Usuario usuario = new Usuario();
+            UsuarioDao usuarioDao = new UsuarioDao();
+            
+            usuario.setUsername(inputUsuario.getText());
+            usuario.setPassword(inputSenha.getText());
+            
+            try {
+                if (usuarioDao.entrar(usuario) == false) {
+                    JOptionPane.showMessageDialog(null, "Dados incorreto!", "Falha", JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+            } catch (ErroSistema ex) {
+                Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+            dispose();
+            Main tl_main = new Main(usuarioDao.verificar_nome(usuario), usuarioDao.verificar_user(usuario), usuarioDao.verificar_id(usuario));
+            tl_main.setVisible(true);
+            
         } catch (ErroSistema ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
-         * @param args the command line arguments
-         */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

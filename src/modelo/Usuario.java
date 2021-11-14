@@ -1,24 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
 package modelo;
 
-/**
- *
- * @author cmaemo
- */
 public class Usuario {
     
     private Integer idUsuario;
-    private String nome;
-    private String username;
+    private String nome;    
+    private String apelido;
+    private String username;    
+    private String email;
+    private String password_nova;
     private String password;
     private String acesso;
     private String sexo;
-    private String morada;
-    private String contacto;
 
     public Integer getIdUsuario() {
         return idUsuario;
@@ -34,6 +28,14 @@ public class Usuario {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getApelido() {
+        return apelido;
+    }
+
+    public void setApelido(String apelido) {
+        this.apelido = apelido;
     }
 
     public String getUsername() {
@@ -68,22 +70,20 @@ public class Usuario {
         this.sexo = sexo;
     }
 
-    public String getMorada() {
-        return morada;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMorada(String morada) {
-        this.morada = morada;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getContacto() {
-        return contacto;
+    public String getPassword_nova() {
+        return password_nova;
     }
 
-    public void setContacto(String contacto) {
-        this.contacto = contacto;
+    public void setPassword_nova(String password_nova) {
+        this.password_nova = password_nova;
     }
-    
-    
     
 }
