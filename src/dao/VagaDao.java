@@ -8,28 +8,28 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import modelo.Cliente;
+import modelo.Vaga;
 import net.proteanit.sql.DbUtils;
 import util.Conecxao;
 
 public class VagaDao {
 
-    public boolean verificar_cliente(Integer idCliente) throws ErroSistema {
+    public boolean verificar_vaga(String nome) throws ErroSistema {
         try {
             Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("Select * from cliente where idCliente='" + idCliente + "'");
+            PreparedStatement ps = conexao.prepareStatement("Select * from vaga where nome='" + nome + "'");
     
             ResultSet rs = ps.executeQuery();
 
-            Cliente cliente = new Cliente();
+            Vaga vaga = new Vaga();
 
             while (rs.next()) {
-                cliente.setIdCliente(rs.getInt("idCliente"));
+                vaga.setNome(rs.getString("nome"));
             }
             
-            if(cliente.getIdCliente()!= null) {
+            if(vaga.getNome()!= null) {
             
-            if(cliente.getIdCliente().equals(idCliente)) {
+            if(vaga.getNome().equals(nome)) {
                 return true;
             }
             else {
@@ -40,125 +40,114 @@ public class VagaDao {
             }
             
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao verificar o cliente!", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro ao verificar a vaga!", "Erro", JOptionPane.ERROR_MESSAGE);
         }
         
         return false;
         
     }
     
-    public void salvar(Cliente cliente) throws ErroSistema {
+    public void salvar(Vaga vaga) throws ErroSistema {
 
         try {
             Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("INSERT INTO `cliente`(`nome`, `apelido`, `endereco`, `sexo`, `contacto`, `tipoDocumento`, `nrDocumento`) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement ps = conexao.prepareStatement("INSERT INTO `vaga`(`nome`, `localizacao`, `descricao`) VALUES (?, ?, ?)");
 
-            ps.setString(1, cliente.getNome());
-            ps.setString(2, cliente.getApelido());
-            ps.setString(3, cliente.getEndereco());
-            ps.setString(4, cliente.getSexo());
-            ps.setString(5, cliente.getContacto());
-            ps.setString(6, cliente.getTipoDocumento());
-            ps.setString(7, cliente.getNrDocumento());
+            ps.setString(1, vaga.getNome());
+            ps.setString(2, vaga.getLocalizacao());
+            ps.setString(3, vaga.getDescricao());
 
             ps.execute();
 
             Conecxao.fecharConexao();
 
-            JOptionPane.showMessageDialog(null, "Cliente registado com sucesso.", "Registado!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Vaga registado com sucesso.", "Registado!", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao cadastrar o cliente!", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar a vaga!", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public void actualizar_clientes(JTable tbl) throws ErroSistema {
+    public void actualizar_vagas(JTable tbl) throws ErroSistema {
 
         try {
 
             Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("Select idCliente as 'ID', nome as 'Nome', apelido as 'Apelido', sexo as 'Sexo', contacto as 'Contacto', endereco as 'Endereço', tipoDocumento as 'Tipo Documento', nrDocumento as 'Nrº Documento' from cliente");
+            PreparedStatement ps = conexao.prepareStatement("Select idVaga as 'ID', nome as 'Nome', localizacao as 'Localização', descricao as 'Descrição' from vaga");
 
             ResultSet rs = ps.executeQuery();
 
             tbl.setModel(DbUtils.resultSetToTableModel(rs));
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao carregar clientes!", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro ao carregar vagas!", "Erro", JOptionPane.ERROR_MESSAGE);
         }
 
     }
     
-    public void actualizar_dados_cliente(Cliente cliente) throws ErroSistema {
+    public void actualizar_dados_vaga(Vaga vaga) throws ErroSistema {
 
         try {
 
             Connection conexao = Conecxao.getConexao();
             PreparedStatement ps;
 
-            ps = conexao.prepareStatement("update cliente set nome=?, apelido=?, sexo=?, contacto=?, endereco=?, tipoDocumento=?, nrDocumento=? where idCliente=?");
+            ps = conexao.prepareStatement("update vaga set nome=?, localizacao=?, descricao=? where idVaga=?");
 
-            ps.setString(1, cliente.getNome());
-            ps.setString(2, cliente.getApelido());
-            ps.setString(3, cliente.getSexo());
-            ps.setString(4, cliente.getContacto());
-            ps.setString(5, cliente.getEndereco());
-            ps.setString(6, cliente.getTipoDocumento());
-            ps.setString(7, cliente.getNrDocumento());
-            ps.setInt(8, cliente.getIdCliente());
+            ps.setString(1, vaga.getNome());
+            ps.setString(2, vaga.getLocalizacao());
+            ps.setString(3, vaga.getDescricao());
+            ps.setInt(4, vaga.getIdVaga());
 
             ps.execute();
             Conecxao.fecharConexao();
 
-            JOptionPane.showMessageDialog(null, "Cliente actualizado com sucesso.", "Actualizado!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Vaga actualizado com sucesso.", "Actualizado!", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao actualizar dados do cliente!", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro ao actualizar dados da vaga!", "Erro", JOptionPane.ERROR_MESSAGE);
         }
 
     }
     
-    public void deletar(int idCliente) throws ErroSistema {
+    public void deletar(int idVaga) throws ErroSistema {
 
         try {
             Connection conexao = Conecxao.getConexao();
             PreparedStatement ps;
 
-            ps = conexao.prepareStatement("delete from cliente where idCliente=?");
-            ps.setInt(1, idCliente);
+            ps = conexao.prepareStatement("delete from vaga where idVaga=?");
+            ps.setInt(1, idVaga);
             ps.execute();
 
             Conecxao.fecharConexao();
 
-            JOptionPane.showMessageDialog(null, "Cliente removido com sucesso.", "Removido!", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Vaga removida com sucesso.", "Removido!", JOptionPane.INFORMATION_MESSAGE);
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao remover o cliente!", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro ao remover a vaga!", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    public Cliente carregar_cliente(String idCliente) throws ErroSistema {
+    public Vaga carregar_vaga(String idVaga) throws ErroSistema {
 
         try {
             Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("Select idCliente as 'ID', nome as 'Nome', apelido as 'Apelido', sexo as 'Sexo', contacto as 'Contacto', endereco as 'Endereço', tipoDocumento as 'Tipo Documento', nrDocumento as 'Nrº Documento' from cliente where id='" + idCliente + "'");
+            PreparedStatement ps = conexao.prepareStatement("Select idVaga as 'ID', nome as 'Nome', localizacao as 'Localização', descricao as 'Descrição' from vaga where id='" + idVaga + "'");
 
             ResultSet rs = ps.executeQuery();
 
-            Cliente cliente = new Cliente();
+            Vaga vaga = new Vaga();
 
             while (rs.next()) {
-                cliente.setIdCliente(rs.getInt("ID"));
-                cliente.setNome(rs.getString("Nome"));
-                cliente.setApelido(rs.getString("Apelido"));
-                cliente.setSexo(rs.getString("Sexo"));
-                cliente.setContacto(rs.getString("Contacto"));
-                cliente.setEndereco(rs.getString("Endereço"));                
-                cliente.setTipoDocumento(rs.getString("Tipo Documento"));
-                cliente.setNrDocumento(rs.getString("Nrº Documento"));
+                vaga.setIdVaga(rs.getInt("ID"));
+                vaga.setNome(rs.getString("Nome"));
+                vaga.setLocalizacao(rs.getString("Localização"));
+                vaga.setDescricao(rs.getString("Descrição"));
+                
             }
 
-            return cliente;
+            return vaga;
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage().toString(), "Erro", JOptionPane.ERROR_MESSAGE);
@@ -167,22 +156,22 @@ public class VagaDao {
         return null;
     }
     
-    public void carregar_cliente_filtro(String valor, JTable tbl) throws ErroSistema {
+    public void carregar_vaga_filtro(String valor, JTable tbl) throws ErroSistema {
 
         try {
             
             Connection conexao = Conecxao.getConexao();
 
-            PreparedStatement ps = conexao.prepareStatement("Select idCliente as 'ID', nome as 'Nome', apelido as 'Apelido', sexo as 'Sexo', contacto as 'Contacto', endereco as 'Endereço', tipoDocumento as 'Tipo Documento', nrDocumento as 'Nrº Documento' from cliente where nome LIKE '" + valor + "%'"
-                    + "OR (apelido LIKE '" + valor + "%')"
-                    + "OR (contacto LIKE '" + valor + "%')");
+            PreparedStatement ps = conexao.prepareStatement("Select idVaga as 'ID', nome as 'Nome', localizacao as 'Localização', descricao as 'Descrição' from vaga where nome LIKE '" + valor + "%'"
+                    + "OR (localizacao LIKE '" + valor + "%')"
+                    + "OR (descricao LIKE '" + valor + "%')");
 
             ResultSet rs = ps.executeQuery();
 
             tbl.setModel(DbUtils.resultSetToTableModel(rs));
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao carregar dados do cliente!", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro ao carregar dados da vaga!", "Erro", JOptionPane.ERROR_MESSAGE);
         }
 
     }

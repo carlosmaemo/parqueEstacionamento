@@ -1,21 +1,21 @@
 package telas;
 
-import dao.ClienteDao;
+import dao.VagaDao;
 import excepcao.ErroSistema;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import modelo.Cliente;
+import modelo.Vaga;
 
 public class CadastroVaga extends javax.swing.JFrame {
 
-    ClienteDao clienteDao = new ClienteDao();
+    VagaDao vagaDao = new VagaDao();
     String click_tabela;
 
     public CadastroVaga() throws ErroSistema {
         initComponents();
 
-        clienteDao.actualizar_clientes(tbl_clientes_cadastrados);
+        vagaDao.actualizar_vagas(tbl_vagas_cadastrados);
 
     }
 
@@ -28,20 +28,12 @@ public class CadastroVaga extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        apelido = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        localizacao = new javax.swing.JTextField();
         nome = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        sexo = new javax.swing.JComboBox<>();
-        jLabel11 = new javax.swing.JLabel();
-        endereco = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        tipoDocumento = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         btnPesquisar = new javax.swing.JButton();
-        contacto = new javax.swing.JTextField();
+        descricao = new javax.swing.JTextField();
         pesquisa = new javax.swing.JTextField();
-        nrDocumento = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         btnCadastrar = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
@@ -49,7 +41,7 @@ public class CadastroVaga extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tbl_clientes_cadastrados = new javax.swing.JTable();
+        tbl_vagas_cadastrados = new javax.swing.JTable();
 
         alterar1.setBackground(new java.awt.Color(204, 204, 204));
         alterar1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -73,69 +65,27 @@ public class CadastroVaga extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Contacto:");
+        jLabel2.setText("Descrição:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Nome:");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Apelido:");
+        jLabel4.setText("Localização:");
 
-        apelido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        apelido.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        apelido.addActionListener(new java.awt.event.ActionListener() {
+        localizacao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        localizacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        localizacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                apelidoActionPerformed(evt);
+                localizacaoActionPerformed(evt);
             }
         });
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Nr. de doc.:");
 
         nome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         nome.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("Endereço:");
-
-        sexo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o sexo...", "Masculino", "Feminino" }));
-        sexo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        sexo.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
-        sexo.setMinimumSize(new java.awt.Dimension(2, 19));
-        sexo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sexoActionPerformed(evt);
-            }
-        });
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel11.setText("Tipo de doc.:");
-
-        endereco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        endereco.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        endereco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enderecoActionPerformed(evt);
-            }
-        });
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setText("Sexo:");
-
-        tipoDocumento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tipoDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o tipo...", "Bilhete de Identificação", "Carta de Condução", "Cartão de Eleitor", "Talão de Bilhete de Identificação" }));
-        tipoDocumento.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        tipoDocumento.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
-        tipoDocumento.setMinimumSize(new java.awt.Dimension(2, 19));
-        tipoDocumento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tipoDocumentoActionPerformed(evt);
             }
         });
 
@@ -155,11 +105,11 @@ public class CadastroVaga extends javax.swing.JFrame {
             }
         });
 
-        contacto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        contacto.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        contacto.addActionListener(new java.awt.event.ActionListener() {
+        descricao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        descricao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        descricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contactoActionPerformed(evt);
+                descricaoActionPerformed(evt);
             }
         });
 
@@ -171,14 +121,6 @@ public class CadastroVaga extends javax.swing.JFrame {
             }
         });
 
-        nrDocumento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        nrDocumento.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        nrDocumento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nrDocumentoActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -187,22 +129,12 @@ public class CadastroVaga extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(18, 18, 18)
-                                .addComponent(endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(20, 20, 20)
-                                .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel3)
+                        .addGap(20, 20, 20)
+                        .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(sexo, 0, 200, Short.MAX_VALUE)
-                        .addGap(54, 54, 54)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(334, 334, 334)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
                                 .addGap(18, 18, 18)
@@ -211,33 +143,17 @@ public class CadastroVaga extends javax.swing.JFrame {
                                 .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(2, 2, 2)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(275, 275, 275)
-                                .addComponent(contacto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(11, 11, 11)
-                                        .addComponent(apelido, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(nrDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(1, 1, 1)))
+                                .addComponent(jLabel4)
+                                .addGap(11, 11, 11)
+                                .addComponent(localizacao, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
                                 .addGap(53, 53, 53)
-                                .addComponent(jLabel2))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(85, 85, 85)
-                                .addComponent(tipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 210, Short.MAX_VALUE))))
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(descricao, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {apelido, endereco, nome, sexo});
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel3, jLabel6, jLabel8});
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel4, jLabel5});
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {localizacao, nome});
 
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,45 +161,21 @@ public class CadastroVaga extends javax.swing.JFrame {
                 .addGap(3, 3, 3)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(apelido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(localizacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2)
-                        .addComponent(contacto, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(descricao, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(endereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(33, 33, 33))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(nrDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28))))
+                .addGap(11, 11, 11)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11))
         );
 
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {apelido, endereco, nome, sexo, tipoDocumento});
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel3, jLabel6, jLabel8});
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {localizacao, nome});
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -374,23 +266,23 @@ public class CadastroVaga extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(204, 255, 204));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        tbl_clientes_cadastrados.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbl_clientes_cadastrados.setModel(new javax.swing.table.DefaultTableModel(
+        tbl_vagas_cadastrados.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tbl_vagas_cadastrados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Nome", "Apelido", "Endereço", "Sexo", "Tipo de Doc", "Nr. de Doc", "Contacto"
+                "Nome", "Localização", "Descrição"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -401,13 +293,13 @@ public class CadastroVaga extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbl_clientes_cadastrados.setShowVerticalLines(false);
-        tbl_clientes_cadastrados.addMouseListener(new java.awt.event.MouseAdapter() {
+        tbl_vagas_cadastrados.setShowVerticalLines(false);
+        tbl_vagas_cadastrados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbl_clientes_cadastradosMouseClicked(evt);
+                tbl_vagas_cadastradosMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(tbl_clientes_cadastrados);
+        jScrollPane3.setViewportView(tbl_vagas_cadastrados);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -442,7 +334,7 @@ public class CadastroVaga extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
@@ -454,51 +346,38 @@ public class CadastroVaga extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void apelidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apelidoActionPerformed
+    private void localizacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_localizacaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_apelidoActionPerformed
+    }//GEN-LAST:event_localizacaoActionPerformed
 
     private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeActionPerformed
 
-    private void sexoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sexoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sexoActionPerformed
-
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
 
-        if (nome.getText().isEmpty() | apelido.getText().isEmpty() | contacto.getText().isEmpty() | nrDocumento.getText().isEmpty() | sexo.getSelectedItem().toString().equals("Selecione o sexo...") | tipoDocumento.getSelectedItem().toString().equals("Selecione o tipo...")) {
+        if (nome.getText().isEmpty() | localizacao.getText().isEmpty() | descricao.getText().isEmpty()) {
 
             JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "Campo Vazio!", JOptionPane.WARNING_MESSAGE);
 
         } else {
 
-            Cliente cliente = new Cliente();
-            cliente.setNome(nome.getText());
-            cliente.setApelido(apelido.getText());
-            cliente.setContacto(contacto.getText());
-            cliente.setEndereco(endereco.getText());
-            cliente.setSexo(sexo.getSelectedItem().toString());
-            cliente.setTipoDocumento(tipoDocumento.getSelectedItem().toString());
-            cliente.setNrDocumento(nrDocumento.getText());
+            Vaga vaga = new Vaga();
+            vaga.setNome(nome.getText());
+            vaga.setLocalizacao(localizacao.getText());
+            vaga.setDescricao(descricao.getText());
 
             try {
-                if (clienteDao.verificar_cliente(cliente.getIdCliente()) == true) {
-                    JOptionPane.showMessageDialog(null, "O cliente já encontra-se cadastrado", "Paciente Existente!", JOptionPane.WARNING_MESSAGE);
+                if (vagaDao.verificar_vaga(vaga.getNome()) == true) {
+                    JOptionPane.showMessageDialog(null, "A vaga já encontra-se cadastrado", "Vaga Existente!", JOptionPane.WARNING_MESSAGE);
                 } else {
-                    clienteDao.salvar(cliente);
+                    vagaDao.salvar(vaga);
                     nome.setText("");
-                    apelido.setText("");
-                    endereco.setText("");
-                    contacto.setText("");
-                    nrDocumento.setText("");
-                    sexo.setSelectedIndex(0);
-                    tipoDocumento.setSelectedIndex(0);
-                    endereco.setText("");
-
-                    clienteDao.actualizar_clientes(tbl_clientes_cadastrados);
+                    localizacao.setText("");
+                    descricao.setText("");
+                    
+                    vagaDao.actualizar_vagas(tbl_vagas_cadastrados);
                 }
             } catch (ErroSistema ex) {
                 Logger.getLogger(CadastroVaga.class.getName()).log(Level.SEVERE, null, ex);
@@ -509,35 +388,26 @@ public class CadastroVaga extends javax.swing.JFrame {
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
 
-        if (nome.getText().isEmpty() | apelido.getText().isEmpty() | contacto.getText().isEmpty() | nrDocumento.getText().isEmpty() | sexo.getSelectedItem().toString().equals("Selecione o sexo...") | tipoDocumento.getSelectedItem().toString().equals("Selecione o tipo...")) {
+        if (nome.getText().isEmpty() | localizacao.getText().isEmpty() | descricao.getText().isEmpty()) {
 
             JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "Campo Vazio!", JOptionPane.WARNING_MESSAGE);
 
         } else {
 
             try {
-                Cliente cliente = new Cliente();
-                cliente.setNome(nome.getText());
-                cliente.setApelido(apelido.getText());
-                cliente.setContacto(contacto.getText());
-                cliente.setEndereco(endereco.getText());
-                cliente.setSexo(sexo.getSelectedItem().toString());
-                cliente.setTipoDocumento(tipoDocumento.getSelectedItem().toString());
-                cliente.setNrDocumento(nrDocumento.getText());
-                cliente.setIdCliente(Integer.parseInt(click_tabela));
+                Vaga vaga = new Vaga();
+                vaga.setNome(nome.getText());
+                vaga.setLocalizacao(localizacao.getText());
+                vaga.setDescricao(descricao.getText());
+                vaga.setIdVaga(Integer.parseInt(click_tabela));
 
-                clienteDao.actualizar_dados_cliente(cliente);
+                vagaDao.actualizar_dados_vaga(vaga);
 
                 nome.setText("");
-                apelido.setText("");
-                endereco.setText("");
-                contacto.setText("");
-                nrDocumento.setText("");
-                sexo.setSelectedIndex(0);
-                tipoDocumento.setSelectedIndex(0);
-                endereco.setText("");
+                localizacao.setText("");
+                descricao.setText("");
 
-                clienteDao.actualizar_clientes(tbl_clientes_cadastrados);
+                vagaDao.actualizar_vagas(tbl_vagas_cadastrados);
 
             } catch (ErroSistema ex) {
                 Logger.getLogger(CadastroVaga.class.getName()).log(Level.SEVERE, null, ex);
@@ -546,45 +416,36 @@ public class CadastroVaga extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAlterarActionPerformed
 
-    private void tbl_clientes_cadastradosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_clientes_cadastradosMouseClicked
+    private void tbl_vagas_cadastradosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_vagas_cadastradosMouseClicked
 
         try {
             
-            int linha = tbl_clientes_cadastrados.getSelectedRow();
-            click_tabela = (tbl_clientes_cadastrados.getModel().getValueAt(linha, 0).toString());
+            int linha = tbl_vagas_cadastrados.getSelectedRow();
+            click_tabela = (tbl_vagas_cadastrados.getModel().getValueAt(linha, 0).toString());
             
-            Cliente cliente_p = clienteDao.carregar_cliente(click_tabela);
+            Vaga vaga_p = vagaDao.carregar_vaga(click_tabela);
             
-            nome.setText(cliente_p.getNome());
-            apelido.setText(cliente_p.getApelido());
-            endereco.setText(cliente_p.getEndereco());
-            sexo.setSelectedItem(cliente_p.getSexo());
-            tipoDocumento.setSelectedItem(cliente_p.getTipoDocumento());
-            contacto.setText(cliente_p.getContacto());
-            nrDocumento.setText(cliente_p.getNrDocumento());
+            nome.setText(vaga_p.getNome());
+            localizacao.setText(vaga_p.getLocalizacao());
+            descricao.setText(vaga_p.getDescricao());
             
         } catch (ErroSistema ex) {
             Logger.getLogger(CadastroVaga.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-    }//GEN-LAST:event_tbl_clientes_cadastradosMouseClicked
+    }//GEN-LAST:event_tbl_vagas_cadastradosMouseClicked
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
 
         if (click_tabela != null) {
             try {
-                clienteDao.deletar(Integer.parseInt(click_tabela));
+                vagaDao.deletar(Integer.parseInt(click_tabela));
                 
                 nome.setText("");
-                apelido.setText("");
-                endereco.setText("");
-                contacto.setText("");
-                nrDocumento.setText("");
-                sexo.setSelectedIndex(0);
-                tipoDocumento.setSelectedIndex(0);
-                endereco.setText("");
+                localizacao.setText("");
+                descricao.setText("");
                 
-                clienteDao.actualizar_clientes(tbl_clientes_cadastrados);
+                vagaDao.actualizar_vagas(tbl_vagas_cadastrados);
             } catch (ErroSistema ex) {
                 Logger.getLogger(CadastroVaga.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -592,23 +453,15 @@ public class CadastroVaga extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnRemoverActionPerformed
 
-    private void enderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enderecoActionPerformed
-
-    }//GEN-LAST:event_enderecoActionPerformed
-
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
-    private void tipoDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoDocumentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tipoDocumentoActionPerformed
-
     private void alterar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterar1ActionPerformed
 
         try {
-            clienteDao.carregar_cliente_filtro(pesquisa.getText(), tbl_clientes_cadastrados);
+            vagaDao.carregar_vaga_filtro(pesquisa.getText(), tbl_vagas_cadastrados);
         } catch (ErroSistema ex) {
             Logger.getLogger(CadastroVaga.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -618,24 +471,20 @@ public class CadastroVaga extends javax.swing.JFrame {
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
 
         try {
-            clienteDao.carregar_cliente_filtro(pesquisa.getText(), tbl_clientes_cadastrados);
+            vagaDao.carregar_vaga_filtro(pesquisa.getText(), tbl_vagas_cadastrados);
         } catch (ErroSistema ex) {
             Logger.getLogger(CadastroVaga.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_btnPesquisarActionPerformed
 
-    private void contactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactoActionPerformed
+    private void descricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descricaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_contactoActionPerformed
+    }//GEN-LAST:event_descricaoActionPerformed
 
     private void pesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pesquisaActionPerformed
-
-    private void nrDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nrDocumentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nrDocumentoActionPerformed
 
     public static void main(String args[]) {
 
@@ -669,31 +518,23 @@ public class CadastroVaga extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton alterar1;
-    private javax.swing.JTextField apelido;
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnRemover;
-    private javax.swing.JTextField contacto;
-    private javax.swing.JTextField endereco;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JTextField descricao;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextField localizacao;
     private javax.swing.JTextField nome;
-    private javax.swing.JTextField nrDocumento;
     private javax.swing.JTextField pesquisa;
-    private javax.swing.JComboBox<String> sexo;
-    private javax.swing.JTable tbl_clientes_cadastrados;
-    private javax.swing.JComboBox<String> tipoDocumento;
+    private javax.swing.JTable tbl_vagas_cadastrados;
     // End of variables declaration//GEN-END:variables
 }
