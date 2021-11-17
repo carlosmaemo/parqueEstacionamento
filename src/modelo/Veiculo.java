@@ -5,7 +5,8 @@ public class Veiculo {
     private Integer idVeiculo;
     private Integer idCliente;
     private String matricula;    
-    private String marca;
+    private String marca; 
+    private String modelo;
     private String cor;  
     private String tipo; 
     private String ano; 
@@ -102,6 +103,15 @@ public class Veiculo {
         this.nrDocumentoCliente = nrDocumentoCliente;
     }
 
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    
     
     
 }
