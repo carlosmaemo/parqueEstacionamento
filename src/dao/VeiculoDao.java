@@ -51,12 +51,19 @@ public class VeiculoDao {
 
         try {
             Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("INSERT INTO `veiculo`(`idCliente`, `matricula`, `marca`, `modelo`, `cor`, `tipo`, `ano`, `nomeCliente`, `apelidoCliente`, `enderecoCliente`, `nrDocumentoCliente`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement ps = conexao.prepareStatement("INSERT INTO `veiculo`(`idCliente`,`matricula`, `marca`, `modelo`, `cor`, `tipo`, `ano`, `nomeCliente`, `apelidoCliente`, `enderecoCliente`, `nrDocumentoCliente`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-            ps.setString(1, veiculo.getNome());
-            ps.setString(2, veiculo.getLocalizacao());
-            ps.setString(3, veiculo.getDescricao());
-
+            ps.setInt(1, veiculo.getIdCliente());
+            ps.setString(2, veiculo.getMatricula());
+            ps.setString(3, veiculo.getMarca());
+            ps.setString(4, veiculo.getModelo());
+             ps.setString(5, veiculo.getCor());
+            ps.setString(6, veiculo.getTipo());
+            ps.setString(7, veiculo.getAno());
+             ps.setString(8, veiculo.getNomeCliente());
+            ps.setString(9, veiculo.getApelidoCliente());
+            ps.setString(10, veiculo.getEnderecoCliente());
+            ps.setString(11, veiculo.getNrDocumentoCliente());
             ps.execute();
 
             Conecxao.fecharConexao();
@@ -94,11 +101,11 @@ public class VeiculoDao {
 
             ps = conexao.prepareStatement("update veiculo set nome=?, localizacao=?, descricao=? where idVeiculo=?");
 
-            ps.setString(1, veiculo.getNome());
+           /* ps.setString(1, veiculo.getNome());
             ps.setString(2, veiculo.getLocalizacao());
             ps.setString(3, veiculo.getDescricao());
             ps.setInt(4, veiculo.getIdVeiculo());
-
+*/
             ps.execute();
             Conecxao.fecharConexao();
 
@@ -140,10 +147,11 @@ public class VeiculoDao {
             Veiculo veiculo = new Veiculo();
 
             while (rs.next()) {
-                veiculo.setIdVeiculo(rs.getInt("ID"));
+              /*  veiculo.setIdVeiculo(rs.getInt("ID"));
                 veiculo.setNome(rs.getString("Nome"));
                 veiculo.setLocalizacao(rs.getString("Localização"));
                 veiculo.setDescricao(rs.getString("Descrição"));
+*/
                 
             }
 

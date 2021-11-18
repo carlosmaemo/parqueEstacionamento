@@ -1,21 +1,25 @@
 package telas;
 
 import dao.ClienteDao;
+import dao.VeiculoDao;
 import excepcao.ErroSistema;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Cliente;
+import modelo.Veiculo;
+
 
 public class CadastroVeiculo extends javax.swing.JFrame {
 
-    ClienteDao clienteDao = new ClienteDao();
+    VeiculoDao veiculoDao = new VeiculoDao();
     String click_tabela;
+    ClienteDao clienteDao = new ClienteDao();
 
     public CadastroVeiculo() throws ErroSistema {
         initComponents();
 
-        clienteDao.actualizar_clientes(tbl_veiculos_cadastrados);
+        clienteDao.actualizar_clientes(tbl_clientes_cadastrados);
 
     }
 
@@ -49,13 +53,15 @@ public class CadastroVeiculo extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        nome = new javax.swing.JTextField();
-        endereco = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         nrDocumento = new javax.swing.JTextField();
+        endereco = new javax.swing.JTextField();
+        nome = new javax.swing.JTextField();
         apelido = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        idClinet = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnCadastrar = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
@@ -189,7 +195,7 @@ public class CadastroVeiculo extends javax.swing.JFrame {
             }
         });
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista de Clientes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 16))); // NOI18N
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista dos Clientes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 16))); // NOI18N
 
         tbl_clientes_cadastrados.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbl_clientes_cadastrados.setModel(new javax.swing.table.DefaultTableModel(
@@ -333,26 +339,6 @@ public class CadastroVeiculo extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Nome:");
 
-        nome.setEditable(false);
-        nome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        nome.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        nome.setEnabled(false);
-        nome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nomeActionPerformed(evt);
-            }
-        });
-
-        endereco.setEditable(false);
-        endereco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        endereco.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        endereco.setEnabled(false);
-        endereco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enderecoActionPerformed(evt);
-            }
-        });
-
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setText("Endereço:");
 
@@ -362,6 +348,8 @@ public class CadastroVeiculo extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Nº de Documento: ");
 
+        nrDocumento.setEditable(false);
+        nrDocumento.setBackground(new java.awt.Color(204, 204, 204));
         nrDocumento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         nrDocumento.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         nrDocumento.addActionListener(new java.awt.event.ActionListener() {
@@ -370,15 +358,20 @@ public class CadastroVeiculo extends javax.swing.JFrame {
             }
         });
 
+        endereco.setEditable(false);
+        endereco.setBackground(new java.awt.Color(204, 204, 204));
+
+        nome.setEditable(false);
+        nome.setBackground(new java.awt.Color(204, 204, 204));
+
         apelido.setEditable(false);
-        apelido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        apelido.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        apelido.setEnabled(false);
-        apelido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                apelidoActionPerformed(evt);
-            }
-        });
+        apelido.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel14.setText("ID do Cliente:");
+
+        idClinet.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        idClinet.setText("0");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -387,49 +380,53 @@ public class CadastroVeiculo extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel13))
-                .addGap(11, 11, 11)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(endereco, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(nrDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel13))
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(endereco)
+                            .addComponent(nome, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
+                        .addGap(16, 16, 16)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(nrDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(44, 44, 44)
+                                .addComponent(apelido))))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(apelido, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(idClinet)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addComponent(apelido, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(11, 11, 11)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addComponent(idClinet))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
+                    .addComponent(nome)
+                    .addComponent(apelido, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(endereco, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE))
-                    .addComponent(nrDocumento, javax.swing.GroupLayout.Alignment.LEADING))
-                .addContainerGap(11, Short.MAX_VALUE))
+                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(nrDocumento, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(endereco, javax.swing.GroupLayout.Alignment.LEADING))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -501,6 +498,8 @@ public class CadastroVeiculo extends javax.swing.JFrame {
                                 .addComponent(ano, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(11, 11, 11))
         );
+
+        jPanel6.getAccessibleContext().setAccessibleName("Lista dos Clientes\n");
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -714,36 +713,42 @@ public class CadastroVeiculo extends javax.swing.JFrame {
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
 
-        if (nome.getText().isEmpty() | nrDocumento.getText().isEmpty() | nome.getText().isEmpty() | matricula.getText().isEmpty() | sexo.getSelectedItem().toString().equals("Selecione o sexo...") | cor.getSelectedItem().toString().equals("Selecione o tipo...")) {
+        if (nome.getText().isEmpty() | nrDocumento.getText().isEmpty() | nome.getText().isEmpty() | matricula.getText().isEmpty() | cor.getSelectedItem().toString().equals("Selecione a Cor...") | tipo.getSelectedItem().toString().equals("Selecione o tipo...")) {
 
             JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "Campo Vazio!", JOptionPane.WARNING_MESSAGE);
 
         } else {
 
-            Cliente cliente = new Cliente();
-            cliente.setNome(nome.getText());
-            cliente.setApelido(nrDocumento.getText());
-            cliente.setContacto(nome.getText());
-            cliente.setEndereco(endereco.getText());
-            cliente.setSexo(sexo.getSelectedItem().toString());
-            cliente.setTipoDocumento(cor.getSelectedItem().toString());
-            cliente.setNrDocumento(matricula.getText());
+            Veiculo veiculo = new Veiculo();
+            
+            veiculo.setIdCliente(Integer.parseInt(idClinet.getText()));
+            veiculo.setNomeCliente(nome.getText());
+            veiculo.setApelidoCliente(apelido.getText());
+            veiculo.setEnderecoCliente(endereco.getText());
+            veiculo.setNrDocumentoCliente(nrDocumento.getText());
+            veiculo.setTipo(tipo.getSelectedItem().toString());
+            veiculo.setCor(cor.getSelectedItem().toString());
+            veiculo.setMatricula(matricula.getText());
+            veiculo.setMarca(marca.getText());
+            veiculo.setModelo(modelo.getText());
+           veiculo.setAno(ano.getText());
+
 
             try {
-                if (clienteDao.verificar_cliente(cliente.getIdCliente()) == true) {
-                    JOptionPane.showMessageDialog(null, "O cliente já encontra-se cadastrado", "Paciente Existente!", JOptionPane.WARNING_MESSAGE);
+                if (veiculoDao.verificar_veiculo(veiculo.getMatricula()) == true) {
+                    JOptionPane.showMessageDialog(null, "O Veiculo já encontra-se cadastrado", "Veiculo Existente!", JOptionPane.WARNING_MESSAGE);
                 } else {
-                    clienteDao.salvar(cliente);
+                    veiculoDao.salvar(veiculo);
                     nome.setText("");
                     nrDocumento.setText("");
                     endereco.setText("");
                     nome.setText("");
                     matricula.setText("");
-                    sexo.setSelectedIndex(0);
+                    tipo.setSelectedIndex(0);
                     cor.setSelectedIndex(0);
                     endereco.setText("");
 
-                    clienteDao.actualizar_clientes(tbl_veiculos_cadastrados);
+                    veiculoDao.actualizar_veiculos(tbl_veiculos_cadastrados);
                 }
             } catch (ErroSistema ex) {
                 Logger.getLogger(CadastroVeiculo.class.getName()).log(Level.SEVERE, null, ex);
@@ -754,35 +759,44 @@ public class CadastroVeiculo extends javax.swing.JFrame {
     private void btnAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlterarActionPerformed
         // TODO add your handling code here:
 
-        if (nome.getText().isEmpty() | nrDocumento.getText().isEmpty() | nome.getText().isEmpty() | matricula.getText().isEmpty() | sexo.getSelectedItem().toString().equals("Selecione o sexo...") | cor.getSelectedItem().toString().equals("Selecione o tipo...")) {
+        if (nome.getText().isEmpty() | nrDocumento.getText().isEmpty() | nome.getText().isEmpty() | matricula.getText().isEmpty() | tipo.getSelectedItem().toString().equals("Selecione o sexo...") | cor.getSelectedItem().toString().equals("Selecione o tipo...")) {
 
             JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "Campo Vazio!", JOptionPane.WARNING_MESSAGE);
 
         } else {
 
             try {
-                Cliente cliente = new Cliente();
-                cliente.setNome(nome.getText());
-                cliente.setApelido(nrDocumento.getText());
-                cliente.setContacto(nome.getText());
-                cliente.setEndereco(endereco.getText());
-                cliente.setSexo(sexo.getSelectedItem().toString());
-                cliente.setTipoDocumento(cor.getSelectedItem().toString());
-                cliente.setNrDocumento(matricula.getText());
-                cliente.setIdCliente(Integer.parseInt(click_tabela));
+               Veiculo veiculo = new Veiculo();
+               veiculo.setIdCliente(Integer.parseInt(idClinet.getText()));
+            veiculo.setNomeCliente(nome.getText());
+            veiculo.setApelidoCliente(apelido.getText());
+            veiculo.setEnderecoCliente(endereco.getText());
+            veiculo.setNrDocumentoCliente(nrDocumento.getText());
+            veiculo.setTipo(tipo.getSelectedItem().toString());
+            veiculo.setCor(cor.getSelectedItem().toString());
+            veiculo.setMatricula(matricula.getText());
+            veiculo.setMarca(marca.getText());
+            veiculo.setModelo(modelo.getText());
+           veiculo.setAno(ano.getText());
+                veiculo.setIdCliente(Integer.parseInt(click_tabela));
 
-                clienteDao.actualizar_dados_cliente(cliente);
-
+                veiculoDao.actualizar_dados_veiculo(veiculo);
+                
+                idClinet.setText("0");
                 nome.setText("");
                 nrDocumento.setText("");
                 endereco.setText("");
                 nome.setText("");
                 matricula.setText("");
-                sexo.setSelectedIndex(0);
+                tipo.setSelectedIndex(0);
                 cor.setSelectedIndex(0);
                 endereco.setText("");
+                apelido.setText("");
+                marca.setText("");
+                modelo.setText("");
+                ano.setText("");
 
-                clienteDao.actualizar_clientes(tbl_veiculos_cadastrados);
+                veiculoDao.actualizar_veiculos(tbl_veiculos_cadastrados);
 
             } catch (ErroSistema ex) {
                 Logger.getLogger(CadastroVeiculo.class.getName()).log(Level.SEVERE, null, ex);
@@ -798,15 +812,15 @@ public class CadastroVeiculo extends javax.swing.JFrame {
             int linha = tbl_veiculos_cadastrados.getSelectedRow();
             click_tabela = (tbl_veiculos_cadastrados.getModel().getValueAt(linha, 0).toString());
             
-            Cliente cliente_p = clienteDao.carregar_cliente(click_tabela);
+            Veiculo cliente_p = veiculoDao.carregar_veiculo(click_tabela);
             
-            nome.setText(cliente_p.getNome());
+            /*nome.setText(cliente_p.getNome());
             nrDocumento.setText(cliente_p.getApelido());
             endereco.setText(cliente_p.getEndereco());
             sexo.setSelectedItem(cliente_p.getSexo());
             cor.setSelectedItem(cliente_p.getTipoDocumento());
             nome.setText(cliente_p.getContacto());
-            matricula.setText(cliente_p.getNrDocumento());
+            matricula.setText(cliente_p.getNrDocumento());*/
             
         } catch (ErroSistema ex) {
             Logger.getLogger(CadastroVeiculo.class.getName()).log(Level.SEVERE, null, ex);
@@ -815,7 +829,7 @@ public class CadastroVeiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_tbl_veiculos_cadastradosMouseClicked
 
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
-
+/*
         if (click_tabela != null) {
             try {
                 clienteDao.deletar(Integer.parseInt(click_tabela));
@@ -833,7 +847,7 @@ public class CadastroVeiculo extends javax.swing.JFrame {
             } catch (ErroSistema ex) {
                 Logger.getLogger(CadastroVeiculo.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        }*/
 
     }//GEN-LAST:event_btnRemoverActionPerformed
 
@@ -847,28 +861,24 @@ public class CadastroVeiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_corActionPerformed
 
     private void alterar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterar1ActionPerformed
-
+/*
         try {
             clienteDao.carregar_cliente_filtro(pesquisaVeiculo.getText(), tbl_veiculos_cadastrados);
         } catch (ErroSistema ex) {
             Logger.getLogger(CadastroVeiculo.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
 
     }//GEN-LAST:event_alterar1ActionPerformed
 
     private void btnPesquisarVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarVeiculoActionPerformed
 
-        try {
+      /*  try {
             clienteDao.carregar_cliente_filtro(pesquisaVeiculo.getText(), tbl_veiculos_cadastrados);
         } catch (ErroSistema ex) {
             Logger.getLogger(CadastroVeiculo.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+*/
     }//GEN-LAST:event_btnPesquisarVeiculoActionPerformed
-
-    private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nomeActionPerformed
 
     private void pesquisaVeiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaVeiculoActionPerformed
         // TODO add your handling code here:
@@ -880,26 +890,40 @@ public class CadastroVeiculo extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
-        ControleAcesso controleAcesso = new ControleAcesso(userx);
-        controleAcesso.setVisible(true);
+     /*   ControleAcesso controleAcesso = new ControleAcesso(userx);
+        controleAcesso.setVisible(true);*/
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
 
-        CadastroFuncionario cadastroFuncionario = new CadastroFuncionario();
-        cadastroFuncionario.setVisible(true);
+        //CadastroFuncionario cadastroFuncionario = new CadastroFuncionario();
+       // cadastroFuncionario.setVisible(true);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
 
-        DadosEstatisticos dadosEstatisticos = new DadosEstatisticos();
-        dadosEstatisticos.setVisible(true);
+       // DadosEstatisticos dadosEstatisticos = new DadosEstatisticos();
+      //  dadosEstatisticos.setVisible(true);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void tbl_clientes_cadastradosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_clientes_cadastradosMouseClicked
-        // TODO add your handling code here:
+          try {
+            
+            int linha = tbl_clientes_cadastrados.getSelectedRow();
+            click_tabela = (tbl_clientes_cadastrados.getModel().getValueAt(linha, 0).toString());
+            
+            Cliente cliente_p = clienteDao.carregar_cliente(click_tabela);
+            idClinet.setText(Integer.toString(cliente_p.getIdCliente()));
+            nome.setText(cliente_p.getNome());
+            apelido.setText(cliente_p.getApelido());
+            endereco.setText(cliente_p.getEndereco());
+            nrDocumento.setText(cliente_p.getNrDocumento());
+            
+        } catch (ErroSistema ex) {
+            Logger.getLogger(CadastroCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_tbl_clientes_cadastradosMouseClicked
 
     private void marcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcaActionPerformed
@@ -925,14 +949,6 @@ public class CadastroVeiculo extends javax.swing.JFrame {
     private void btnPesquisarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPesquisarClienteActionPerformed
-
-    private void apelidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apelidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_apelidoActionPerformed
-
-    private void enderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enderecoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_enderecoActionPerformed
 
     public static void main(String args[]) {
 
@@ -976,6 +992,7 @@ public class CadastroVeiculo extends javax.swing.JFrame {
     private javax.swing.JButton btnRemover;
     private javax.swing.JComboBox<String> cor;
     private javax.swing.JTextField endereco;
+    private javax.swing.JLabel idClinet;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -983,6 +1000,7 @@ public class CadastroVeiculo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

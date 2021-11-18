@@ -1,12 +1,15 @@
 package telas;
 
-import dao.UsuariosDAO;
+import dao.UsuarioDao;
+import excepcao.ErroSistema;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import model.Usuarios;
+import modelo.Usuario;
 
 public class Senha extends javax.swing.JFrame {
 
-    UsuariosDAO usuarioDAO = new UsuariosDAO();
+    UsuarioDao usuarioDAO = new UsuarioDao();
 
     public Senha() {
         initComponents();
@@ -226,31 +229,35 @@ public class Senha extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "Campo Vazio!", JOptionPane.WARNING_MESSAGE);
         } else if (senha_nova.getText().equals(senha_conf.getText())) {
 
-            UsuariosDAO dao = new UsuariosDAO();
+            UsuarioDao dao = new UsuarioDao();
 
-            Usuarios usuario = new Usuarios();
+            Usuario usuario = new Usuario();
             usuario.setPassword(senha_atual.getText());
             usuario.setPassword_nova(senha_nova.getText());
             usuario.setUsername(senha_username.getText());
 
-            if (dao.entrar(usuario) == false) {
-                JOptionPane.showMessageDialog(null, "Dados incorreto!", "Falha", JOptionPane.WARNING_MESSAGE);
-                return;
-            } else {
-
-            usuario.setPassword(senha_atual.getText());
-            usuario.setPassword_nova(senha_nova.getText());
-            usuario.setUsername(senha_username.getText());
-            
-                usuarioDAO.salvar_senha(usuario);
-
-                senha_atual.setText("");
-                senha_nova.setText("");
-                senha_conf.setText("");
-                senha_username.setText("");
-                
-                dispose();
-
+            try {
+                if (dao.entrar(usuario) == false) {
+                    JOptionPane.showMessageDialog(null, "Dados incorreto!", "Falha", JOptionPane.WARNING_MESSAGE);
+                    return;
+                } else {
+                    
+                    usuario.setPassword(senha_atual.getText());
+                    usuario.setPassword_nova(senha_nova.getText());
+                    usuario.setUsername(senha_username.getText());
+                    
+                    usuarioDAO.salvar_senha(usuario);
+                    
+                    senha_atual.setText("");
+                    senha_nova.setText("");
+                    senha_conf.setText("");
+                    senha_username.setText("");
+                    
+                    dispose();
+                    
+                }
+            } catch (ErroSistema ex) {
+                Logger.getLogger(Senha.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         } else {
