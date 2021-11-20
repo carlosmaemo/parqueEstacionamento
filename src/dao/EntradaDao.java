@@ -12,7 +12,7 @@ import modelo.Veiculo;
 import net.proteanit.sql.DbUtils;
 import util.Conecxao;
 
-public class VeiculoDao {
+public class EntradaDao {
 
     public boolean verificar_veiculo(String matricula) throws ErroSistema {
         try {
