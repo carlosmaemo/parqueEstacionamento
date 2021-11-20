@@ -12,7 +12,7 @@ import modelo.Veiculo;
 import net.proteanit.sql.DbUtils;
 import util.Conecxao;
 
-public class VeiculoDao {
+public class EntradaDao {
 
     public boolean verificar_veiculo(String matricula) throws ErroSistema {
         try {
@@ -46,31 +46,12 @@ public class VeiculoDao {
 
     }
 
-<<<<<<< Updated upstream
-        try {
-            Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("INSERT INTO `veiculo`(`idCliente`,`matricula`, `marca`, `modelo`, `cor`, `tipo`, `ano`, `nomeCliente`, `apelidoCliente`, `enderecoCliente`, `nrDocumentoCliente`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
-            ps.setInt(1, veiculo.getIdCliente());
-            ps.setString(2, veiculo.getMatricula());
-            ps.setString(3, veiculo.getMarca());
-            ps.setString(4, veiculo.getModelo());
-             ps.setString(5, veiculo.getCor());
-            ps.setString(6, veiculo.getTipo());
-            ps.setString(7, veiculo.getAno());
-             ps.setString(8, veiculo.getNomeCliente());
-            ps.setString(9, veiculo.getApelidoCliente());
-            ps.setString(10, veiculo.getEnderecoCliente());
-            ps.setString(11, veiculo.getNrDocumentoCliente());
-            ps.execute();
-=======
     public void actualizar_clientes(JTable tbl) throws ErroSistema {
 
         try {
 
             Connection conexao = Conecxao.getConexao();
             PreparedStatement ps = conexao.prepareStatement("Select idCliente as 'ID', nome as 'Nome', apelido as 'Apelido', sexo as 'Sexo', contacto as 'Contacto', endereco as 'Endereço', tipoDocumento as 'Tipo Documento', nrDocumento as 'Nrº Documento' from cliente");
->>>>>>> Stashed changes
 
             ResultSet rs = ps.executeQuery();
 
@@ -135,15 +116,6 @@ public class VeiculoDao {
             Connection conexao = Conecxao.getConexao();
             PreparedStatement ps;
 
-<<<<<<< Updated upstream
-            ps = conexao.prepareStatement("update veiculo set nome=?, localizacao=?, descricao=? where idVeiculo=?");
-
-           /* ps.setString(1, veiculo.getNome());
-            ps.setString(2, veiculo.getLocalizacao());
-            ps.setString(3, veiculo.getDescricao());
-            ps.setInt(4, veiculo.getIdVeiculo());
-*/
-=======
             ps = conexao.prepareStatement("update veiculo set idCliente=?, matricula=?, marca=?, modelo=?, cor=?, tipo=?, ano=?, nomeCliente=?, apelidoCliente=?, enderecoCliente=?, nrDocumentoCliente=? where idVeiculo=?");
 
             ps.setInt(1, veiculo.getIdCliente());
@@ -159,7 +131,6 @@ public class VeiculoDao {
             ps.setString(11, veiculo.getNrDocumentoCliente());
             ps.setInt(12, veiculo.getIdVeiculo());
 
->>>>>>> Stashed changes
             ps.execute();
             Conecxao.fecharConexao();
 
@@ -201,14 +172,6 @@ public class VeiculoDao {
             Veiculo veiculo = new Veiculo();
 
             while (rs.next()) {
-<<<<<<< Updated upstream
-              /*  veiculo.setIdVeiculo(rs.getInt("ID"));
-                veiculo.setNome(rs.getString("Nome"));
-                veiculo.setLocalizacao(rs.getString("Localização"));
-                veiculo.setDescricao(rs.getString("Descrição"));
-*/
-=======
->>>>>>> Stashed changes
                 
                 veiculo.setIdVeiculo(rs.getInt("ID Veículo"));
                 veiculo.setIdCliente(rs.getInt("ID Cliente"));
