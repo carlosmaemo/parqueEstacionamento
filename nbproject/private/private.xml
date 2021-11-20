@@ -3,9 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/cmaemo/Desktop/Proxmeru/Repositórios/parqueEstacionamento/src/telas/CadastroVeiculo.java</file>
             <file>file:/Users/cmaemo/Desktop/Proxmeru/Repositórios/parqueEstacionamento/src/dao/VeiculoDao.java</file>
-            <file>file:/Users/cmaemo/Desktop/Proxmeru/Repositórios/parqueEstacionamento/src/modelo/Veiculo.java</file>
+            <file>file:/Users/cmaemo/Desktop/Proxmeru/Repositórios/parqueEstacionamento/src/dao/EstatisticasDao.java</file>
         </group>
     </open-files>
 </project-private>
