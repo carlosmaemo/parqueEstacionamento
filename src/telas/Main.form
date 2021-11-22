@@ -362,7 +362,7 @@
                   <Font name="Tahoma" size="16" style="0"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icons/icons8-visualizar-arquivo-64.png"/>
+                  <Image iconType="3" name="/icons/estacionamento.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar Vaga"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
@@ -383,7 +383,7 @@
                   <Font name="Tahoma" size="16" style="0"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icons/icons8-calend&#xe1;rio-64.png"/>
+                  <Image iconType="3" name="/icons/barreira.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Registo (Sa&#xed;das)"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
@@ -404,7 +404,7 @@
                   <Font name="Tahoma" size="16" style="0"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icons/icons8-dossi&#xea;-64.png"/>
+                  <Image iconType="3" name="/icons/estacionamento-entrada.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Registo (Entradas)"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
@@ -425,7 +425,7 @@
                   <Font name="Tahoma" size="16" style="0"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icons/icons8-visualizar-arquivo-64.png"/>
+                  <Image iconType="3" name="/icons/registro-online.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Registo (Vagas)"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
@@ -446,7 +446,7 @@
                   <Font name="Tahoma" size="16" style="0"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icons/icons8-visualizar-arquivo-64.png"/>
+                  <Image iconType="3" name="/icons/carro.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Cadastrar Ve&#xed;culo"/>
                 <Property name="borderPainted" type="boolean" value="false"/>
@@ -569,7 +569,7 @@
                   <Font name="Tahoma" size="16" style="0"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/icons/icons8-adicionar-&#xe0;-&#xe1;rea-de-transfer&#xea;ncia-64.png"/>
+                  <Image iconType="3" name="/icons/estatisticas(1).png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Dados Estat&#xed;sticos"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

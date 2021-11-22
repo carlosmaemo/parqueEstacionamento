@@ -110,7 +110,7 @@ public class Main extends javax.swing.JFrame {
 
         jButton6.setBackground(new java.awt.Color(204, 204, 204));
         jButton6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-visualizar-arquivo-64.png"))); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/estacionamento.png"))); // NOI18N
         jButton6.setText("Cadastrar Vaga");
         jButton6.setBorderPainted(false);
         jButton6.setFocusPainted(false);
@@ -124,7 +124,7 @@ public class Main extends javax.swing.JFrame {
 
         jButton7.setBackground(new java.awt.Color(204, 204, 204));
         jButton7.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-calendário-64.png"))); // NOI18N
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/barreira.png"))); // NOI18N
         jButton7.setText("Registo (Saídas)");
         jButton7.setBorderPainted(false);
         jButton7.setFocusPainted(false);
@@ -138,7 +138,7 @@ public class Main extends javax.swing.JFrame {
 
         jButton8.setBackground(new java.awt.Color(204, 204, 204));
         jButton8.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-dossiê-64.png"))); // NOI18N
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/estacionamento-entrada.png"))); // NOI18N
         jButton8.setText("Registo (Entradas)");
         jButton8.setBorderPainted(false);
         jButton8.setFocusPainted(false);
@@ -152,7 +152,7 @@ public class Main extends javax.swing.JFrame {
 
         jButton9.setBackground(new java.awt.Color(204, 204, 204));
         jButton9.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-visualizar-arquivo-64.png"))); // NOI18N
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/registro-online.png"))); // NOI18N
         jButton9.setText("Registo (Vagas)");
         jButton9.setBorderPainted(false);
         jButton9.setFocusPainted(false);
@@ -166,7 +166,7 @@ public class Main extends javax.swing.JFrame {
 
         jButton13.setBackground(new java.awt.Color(204, 204, 204));
         jButton13.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-visualizar-arquivo-64.png"))); // NOI18N
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/carro.png"))); // NOI18N
         jButton13.setText("Cadastrar Veículo");
         jButton13.setBorderPainted(false);
         jButton13.setFocusPainted(false);
@@ -260,7 +260,7 @@ public class Main extends javax.swing.JFrame {
 
         jButton12.setBackground(new java.awt.Color(204, 204, 204));
         jButton12.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-adicionar-à-área-de-transferência-64.png"))); // NOI18N
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/estatisticas(1).png"))); // NOI18N
         jButton12.setText("Dados Estatísticos");
         jButton12.setBorder(null);
         jButton12.setBorderPainted(false);
@@ -572,14 +572,6 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton11ActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-
-        DadosEstatisticos dadosEstatisticos = new DadosEstatisticos();
-        dadosEstatisticos.setVisible(true);
-
-    }//GEN-LAST:event_jButton12ActionPerformed
-
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
 
         CadastroFuncionario cadastroFuncionario = new CadastroFuncionario();
@@ -631,6 +623,13 @@ public class Main extends javax.swing.JFrame {
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+
+        DadosEstatisticos dadosEstatisticos = new DadosEstatisticos();
+        dadosEstatisticos.setVisible(true);
+    }//GEN-LAST:event_jButton12ActionPerformed
 
     /**
      * @param args the command line arguments

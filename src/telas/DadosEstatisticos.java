@@ -65,6 +65,7 @@ public class DadosEstatisticos extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/estatisticas(1).png"))); // NOI18N
         jLabel1.setText("DADOS ESTATÍSTICOS");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -250,8 +251,9 @@ public class DadosEstatisticos extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(204, 255, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        remover1.setBackground(new java.awt.Color(204, 204, 204));
+        remover1.setBackground(new java.awt.Color(255, 51, 51));
         remover1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        remover1.setForeground(new java.awt.Color(255, 255, 255));
         remover1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-excluir-24.png"))); // NOI18N
         remover1.setText("Cancelar");
         remover1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));

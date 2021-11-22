@@ -1,20 +1,20 @@
 package telas;
 
-import dao.UsuariosDAO;
+//import dao.UsuarioDAO;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import model.Usuarios;
+import modelo.Usuario;
 
 public class CadastroFuncionario extends javax.swing.JFrame {
 
-    UsuariosDAO usuarioDAO = new UsuariosDAO();
+//    UsuariosDAO usuarioDAO = new UsuariosDAO();
     String click_tabela;
 
     public CadastroFuncionario() {
 
         initComponents();
 
-        usuarioDAO.actualizar_funcionarios(tbl_funcionarios_cadastrados);
+        //susuarioDAO.actualizar_funcionarios(tbl_funcionarios_cadastrados);
 
     }
 
@@ -87,8 +87,10 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/carteira-de-identidade.png"))); // NOI18N
         jLabel1.setText("CADASTRO DE FUNCIONÁRIOS");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -103,14 +105,15 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(jLabel1)
-                .addGap(11, 11, 11))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/avatardefault_92824.png"))); // NOI18N
         jLabel2.setText("Username:");
 
         username.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -122,9 +125,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/avatar-homem.png"))); // NOI18N
         jLabel3.setText("Nome:");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/tooltip_edit_icon_135097.png"))); // NOI18N
         jLabel4.setText("Apelido:");
 
         apelido.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -136,6 +141,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/password.png"))); // NOI18N
         jLabel5.setText("Password:");
 
         nome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -155,6 +161,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/email_14410.png"))); // NOI18N
         jLabel6.setText("Email:");
 
         email.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -166,6 +173,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/password.png"))); // NOI18N
         jLabel7.setText("Conf. Pass:");
 
         password2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -177,9 +185,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/sexo.png"))); // NOI18N
         jLabel8.setText("Sexo:");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/google_admin_icon_131692.png"))); // NOI18N
         jLabel9.setText("Tipo de User:");
 
         tipoUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -214,23 +224,25 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(50, 50, 50)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(11, 11, 11)
-                        .addComponent(tipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(tipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
                                 .addComponent(jLabel4)
                                 .addGap(11, 11, 11)
                                 .addComponent(apelido, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(42, 42, 42)
                                 .addComponent(jLabel2)
-                                .addGap(11, 11, 11)
+                                .addGap(18, 18, 18)
                                 .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(50, 50, 50)
+                        .addGap(57, 57, 57)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel7)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING))
@@ -261,37 +273,33 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                         .addGap(11, 11, 11)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(password2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(password2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(5, 5, 5))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(apelido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2)
+                                .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2))
-                                .addGap(11, 11, 11)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel9)
-                                    .addComponent(tipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(11, 11, 11)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(5, 5, 5))
+                                .addGap(2, 2, 2)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, Short.MAX_VALUE)
+                                .addContainerGap())
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(sexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
         );
 
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel3, jLabel6, jLabel8});
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel2, jLabel4, jLabel9});
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel2, jLabel4});
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel5, jLabel7});
 
@@ -338,8 +346,9 @@ public class CadastroFuncionario extends javax.swing.JFrame {
             }
         });
 
-        remover2.setBackground(new java.awt.Color(204, 204, 204));
+        remover2.setBackground(new java.awt.Color(255, 51, 51));
         remover2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        remover2.setForeground(new java.awt.Color(255, 255, 255));
         remover2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-excluir-24.png"))); // NOI18N
         remover2.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         remover2.setBorderPainted(false);
@@ -499,7 +508,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
     private void tbl_funcionarios_cadastradosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_funcionarios_cadastradosMouseClicked
 
-        int linha = tbl_funcionarios_cadastrados.getSelectedRow();
+    /*   int linha = tbl_funcionarios_cadastrados.getSelectedRow();
         click_tabela = (tbl_funcionarios_cadastrados.getModel().getValueAt(linha, 0).toString());
 
         Usuarios usuario_p = usuarioDAO.carregar_funcionario(click_tabela);
@@ -511,12 +520,12 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         password.setText(usuario_p.getPassword());
         password2.setText(usuario_p.getPassword());
         sexo.setSelectedItem(usuario_p.getSexo());
-        tipoUsuario.setSelectedItem(usuario_p.getAcesso());
+        tipoUsuario.setSelectedItem(usuario_p.getAcesso());*/
 
     }//GEN-LAST:event_tbl_funcionarios_cadastradosMouseClicked
 
     private void cadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrar1ActionPerformed
-        // TODO add your handling code here:
+/*        // TODO add your handling code here:
 if (nome.getText().isEmpty() | apelido.getText().isEmpty() | email.getText().isEmpty() | username.getText().isEmpty() | password.getText().isEmpty() | password2.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "Campo Vazio!", JOptionPane.WARNING_MESSAGE);
         } else if (password.getText().equals(password2.getText())) {
@@ -544,11 +553,11 @@ if (nome.getText().isEmpty() | apelido.getText().isEmpty() | email.getText().isE
 
         } else {
             JOptionPane.showMessageDialog(null, "As senhas não correspondem.", "Senha inválida!", JOptionPane.WARNING_MESSAGE);
-        }
+        }*/
     }//GEN-LAST:event_cadastrar1ActionPerformed
 
     private void alterar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterar1ActionPerformed
-        // TODO add your handling code here:
+     /*   // TODO add your handling code here:
 
         if (nome.getText().isEmpty() | apelido.getText().isEmpty() | email.getText().isEmpty() | username.getText().isEmpty() | password.getText().isEmpty() | password2.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "Campo Vazio!", JOptionPane.WARNING_MESSAGE);
@@ -578,12 +587,12 @@ if (nome.getText().isEmpty() | apelido.getText().isEmpty() | email.getText().isE
 
         } else {
             JOptionPane.showMessageDialog(null, "As senhas não correspondem.", "Senha inválida!", JOptionPane.WARNING_MESSAGE);
-        }
+        }*/
     }//GEN-LAST:event_alterar1ActionPerformed
 
     private void remover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remover1ActionPerformed
 
-        usuarioDAO.deletar(Integer.parseInt(click_tabela));
+     /*   usuarioDAO.deletar(Integer.parseInt(click_tabela));
 
         nome.setText("");
         apelido.setText("");
@@ -594,7 +603,7 @@ if (nome.getText().isEmpty() | apelido.getText().isEmpty() | email.getText().isE
         sexo.setSelectedIndex(0);
         tipoUsuario.setSelectedIndex(0);
 
-        usuarioDAO.actualizar_funcionarios(tbl_funcionarios_cadastrados);
+        usuarioDAO.actualizar_funcionarios(tbl_funcionarios_cadastrados);*/
 
     }//GEN-LAST:event_remover1ActionPerformed
 

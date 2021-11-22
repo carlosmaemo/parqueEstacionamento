@@ -48,6 +48,7 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setText("Gestão de parque de Estacionamento");
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/avatardefault_92824.png"))); // NOI18N
         jLabel1.setText("Usuário:");
 
         inputUsuario.setPreferredSize(new java.awt.Dimension(10, 30));
@@ -58,6 +59,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/password.png"))); // NOI18N
         jLabel2.setText("Senha:");
 
         inputSenha.addActionListener(new java.awt.event.ActionListener() {
@@ -101,8 +103,9 @@ public class Login extends javax.swing.JFrame {
                                 .addComponent(btnEntrar)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel2)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(inputSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(inputSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(8, 8, 8))))))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
