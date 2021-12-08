@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="802" pageHeight="1150" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="425f506f-b0ce-4527-9095-c0406f83a005">
+	<property name="ireport.zoom" value="0.9090909090909091"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="adaptador"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="204"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="785"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="CARGA" uuid="11ef9eda-b19f-4a61-9f44-d9453a1cdad8">
+		<queryString language="SQL">
+			<![CDATA[select * from carga;]]>
+		</queryString>
+		<field name="nrRegistro" class="java.lang.Object"/>
+		<field name="nome" class="java.lang.Object"/>
+		<field name="observacoes" class="java.lang.Object"/>
+		<field name="dataCadastro" class="java.lang.Object"/>
+		<field name="matricula" class="java.lang.Object"/>
+		<field name="guia" class="java.lang.Object"/>
+		<field name="fornecedor" class="java.lang.Object"/>
+		<field name="dono" class="java.lang.Object"/>
+		<field name="local" class="java.lang.Object"/>
+		<field name="quantidade" class="java.lang.Object"/>
+		<field name="assinatura" class="java.lang.Object"/>
+		<field name="mes" class="java.lang.Object"/>
+		<field name="dataCarga" class="java.lang.Object"/>
+		<field name="dataDescarga" class="java.lang.Object"/>
+		<group name="matricula">
+			<groupExpression><![CDATA[$F{matricula}]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="Table Dataset 1" uuid="f8bc4f2d-9fdf-47c0-bbe4-f17fad7bfcb4"/>
+	<parameter name="idEntrada" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="duracao" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from entrada where idEntrada = $P{idEntrada};]]>
+	</queryString>
+	<field name="idEntrada" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="idEntrada"/>
+		<property name="com.jaspersoft.studio.field.label" value="idEntrada"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="idVeiculo" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="idVeiculo"/>
+		<property name="com.jaspersoft.studio.field.label" value="idVeiculo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="idCliente" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="idCliente"/>
+		<property name="com.jaspersoft.studio.field.label" value="idCliente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="preco" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="preco"/>
+		<property name="com.jaspersoft.studio.field.label" value="preco"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="precoTotal" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="precoTotal"/>
+		<property name="com.jaspersoft.studio.field.label" value="precoTotal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="dataEntrada" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="dataEntrada"/>
+		<property name="com.jaspersoft.studio.field.label" value="dataEntrada"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="dataSaida" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="dataSaida"/>
+		<property name="com.jaspersoft.studio.field.label" value="dataSaida"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="operador" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="operador"/>
+		<property name="com.jaspersoft.studio.field.label" value="operador"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="vagaNome" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="vagaNome"/>
+		<property name="com.jaspersoft.studio.field.label" value="vagaNome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="veiculoMatricula" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="veiculoMatricula"/>
+		<property name="com.jaspersoft.studio.field.label" value="veiculoMatricula"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="veiculoMarca" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="veiculoMarca"/>
+		<property name="com.jaspersoft.studio.field.label" value="veiculoMarca"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="veiculoModelo" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="veiculoModelo"/>
+		<property name="com.jaspersoft.studio.field.label" value="veiculoModelo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="veiculoCor" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="veiculoCor"/>
+		<property name="com.jaspersoft.studio.field.label" value="veiculoCor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="veiculoTipo" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="veiculoTipo"/>
+		<property name="com.jaspersoft.studio.field.label" value="veiculoTipo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="veiculoAno" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="veiculoAno"/>
+		<property name="com.jaspersoft.studio.field.label" value="veiculoAno"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="clienteNome" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="clienteNome"/>
+		<property name="com.jaspersoft.studio.field.label" value="clienteNome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="clienteNrDocumento" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="clienteNrDocumento"/>
+		<property name="com.jaspersoft.studio.field.label" value="clienteNrDocumento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="estado" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="estado"/>
+		<property name="com.jaspersoft.studio.field.label" value="estado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="opValor" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="opValor"/>
+		<property name="com.jaspersoft.studio.field.label" value="opValor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="opTroco" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="opTroco"/>
+		<property name="com.jaspersoft.studio.field.label" value="opTroco"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="opDivida" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="opDivida"/>
+		<property name="com.jaspersoft.studio.field.label" value="opDivida"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="opOperador" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="opOperador"/>
+		<property name="com.jaspersoft.studio.field.label" value="opOperador"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="24">
+			<rectangle>
+				<reportElement x="0" y="0" width="800" height="23" backcolor="#000000" uuid="ab34182c-1ff9-4917-9e1b-1c0a9a2aba8e"/>
+			</rectangle>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="93">
+			<staticText>
+				<reportElement x="20" y="0" width="300" height="56" uuid="776a712f-fea6-44bb-97a4-e086c8e060fd"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="28" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACTURA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="547" y="9" width="233" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="c05c6929-60b5-4a1f-bdfc-073004d3ecbb"/>
+				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Parque de estacionamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="547" y="29" width="233" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="5354c238-44cd-47c8-b290-8e63c06bf7c1"/>
+				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Bairro Chingodzi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="547" y="47" width="233" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="62503b0f-a51d-40e1-ace0-f544acd47096"/>
+				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Tete]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="547" y="65" width="233" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="e055cd18-cf88-4f03-817a-ec55ced37c79"/>
+				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Moçambique]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="20" y="56" width="300" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="23ae6776-4189-4471-88c6-e7394e8b0f7c"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Número de Documento: 827830-MZ82]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="319">
+			<staticText>
+				<reportElement mode="Transparent" x="20" y="20" width="300" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="e6cb2900-fa43-4548-97d1-ff8ef72a1c85"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Cobrar de:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="20" y="47" width="300" height="19" uuid="147ebf31-1fac-4f34-8473-53496a7023a5">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clienteNome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="66" width="300" height="19" uuid="55f78ed4-becb-4773-84da-04f176d343b7">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clienteNrDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="119" width="300" height="19" uuid="cdf826c4-b7cf-461d-8f8a-56c86e3ed5cd">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veiculoMatricula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="138" width="300" height="19" uuid="cf43c40f-ff2e-4ecd-af3f-bc40fc8f1063">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veiculoMarca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="157" width="300" height="19" uuid="988dd9ff-7fda-47d1-8fd1-743923d7d42f">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veiculoModelo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="176" width="300" height="19" uuid="10f15e93-e91f-4a81-b25b-cffc28156a2c">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veiculoCor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="20" y="97" width="300" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="a21292e5-45c7-44de-9756-b065441268bf"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Veículo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="20" y="209" width="300" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="260cc865-5000-431e-a177-9602d6ea2cc9"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Detalhes:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="20" y="239" width="130" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="6872cf93-dd2d-452a-8cb8-c1a8b314dfa2"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Data de Entrada:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="239" width="170" height="19" uuid="43fefaa9-07e5-4b8e-8d40-93a7ab01cf35">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataEntrada}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="20" y="259" width="130" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="0b9b0844-c50f-4141-b377-71b2ecd98de7"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Data de Saída:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="259" width="170" height="19" uuid="d92c9bc2-77bf-47da-bf12-1b567a06bdb5">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dataSaida}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="20" y="279" width="130" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="9573a0d9-3b8a-4152-aaa3-83afb21fcacc"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Vaga do parque:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="279" width="170" height="19" uuid="26e4bc95-b15e-448c-83c8-763746f1124e">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{vagaNome}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Transparent" x="400" y="20" width="130" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="3cb58843-7a26-4a4a-9146-7afa5ec1cbb4"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Duração]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="400" y="50" width="170" height="19" uuid="b0efaf4b-a3a1-4c22-be4b-cb96b1fe4622">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{duracao}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="400" y="44" width="381" height="1" uuid="758f6eb2-e509-4365-9690-286ed099a67f"/>
+			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="400" y="78" width="130" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="2ec0a723-5acc-496c-a0d1-9b6fc64e98e6"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Valor por hora]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="400" y="108" width="170" height="19" uuid="2002f3f9-7d70-4e86-840b-709b1dbe9362">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{preco}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="400" y="102" width="381" height="1" uuid="9f6c2554-4600-4639-9344-c3089da0273e"/>
+			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="400" y="138" width="130" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="e071bf7b-1170-497f-a544-676a5f34f704"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="590" y="168" width="170" height="19" uuid="456a4b92-a399-45f9-ad8a-45efcd31f3c1">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{veiculoTipo}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="400" y="162" width="381" height="1" uuid="2285ecb3-a045-4ad3-9c3f-6e5f2b09c273"/>
+			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="400" y="168" width="190" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="70fcb093-2c79-4823-a8dd-756cdf289435"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Estacionamento de carro:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="400" y="198" width="130" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="cf7ea11f-faff-46b4-ad07-12b6751d08bc"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Facturação:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="470" y="228" width="170" height="19" uuid="d4771c3d-319d-4b55-843b-e7856cbeec51">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{precoTotal}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="400" y="222" width="381" height="1" uuid="7ce96594-42a7-4b41-b846-73350e06c7f3"/>
+			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="400" y="228" width="70" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="42d1fb63-eb12-4296-9a70-a7f15945e05f"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Subtotal:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="400" y="248" width="70" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="538bbd6f-f1dd-4c42-8a86-f08e03cabe8b"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[IVA (0%):]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="470" y="248" width="70" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="fe3d9a3e-3bfc-4583-b4b0-ab2e1f3fedbc"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[00.0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="400" y="276" width="70" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="c49964e6-b646-46b9-b6e4-14ed6d5bb1c2"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="SansSerif" size="15" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[TOTAL:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="470" y="276" width="170" height="19" uuid="a9eeb17a-38d7-4d1d-ba76-6bbc34c77690">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{precoTotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

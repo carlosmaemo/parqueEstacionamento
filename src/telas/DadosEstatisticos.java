@@ -1,29 +1,27 @@
 package telas;
 
-import dao.EstatisticasDAO;
-import report.Relatorio;
+import dao.EstatisticasDao;
+import excepcao.ErroSistema;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DadosEstatisticos extends javax.swing.JFrame {
 
-    EstatisticasDAO estatisca = new EstatisticasDAO();
-    
-    public DadosEstatisticos() {
+    EstatisticasDao estatisca = new EstatisticasDao();
+
+    public DadosEstatisticos() throws ErroSistema {
+
         initComponents();
-        
-        actualizar_total_funcionario(estatisca.total_funcionarios());        
-        actualizar_total_paciente(estatisca.total_pacientes());        
-        actualizar_total_agendamento(estatisca.total_agendamentos());        
-        actualizar_total_obito(estatisca.total_obitos());        
-        actualizar_total_vivo(estatisca.total_vivos());        
-        actualizar_total_trav(estatisca.total_travs());        
-        actualizar_total_suspensos(estatisca.total_travs_suspensos());        
-        actualizar_total_abandonados(estatisca.total_travs_abandonados());        
-        actualizar_total_seguimentos(estatisca.total_travs_seguimento());
-        actualizar_total_negativos(estatisca.total_negativos());
-        actualizar_total_positivos(estatisca.total_positivos());
-        
+
+        actualizar_total_funcionario(estatisca.total_funcionarios());
+        actualizar_total_paciente(estatisca.total_pacientes());
+        actualizar_total_veiculo(estatisca.total_veiculos());
+        actualizar_total_vaga(estatisca.total_vagas());
+        actualizar_total_vagaOcupada(estatisca.total_vagasOcupadas());
+        actualizar_total_vagaDisponivel(estatisca.total_vagasDisponiveis());
+
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -37,22 +35,12 @@ public class DadosEstatisticos extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        total_clientes = new javax.swing.JLabel();
+        total_veiculos = new javax.swing.JLabel();
+        total_vagasDisponiveis = new javax.swing.JLabel();
+        total_vagas = new javax.swing.JLabel();
         total_funcionarios = new javax.swing.JLabel();
-        total_pacientes = new javax.swing.JLabel();
-        total_agendamento = new javax.swing.JLabel();
-        total_trav = new javax.swing.JLabel();
-        total_obito = new javax.swing.JLabel();
-        total_trav_suspensos = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        total_trav_abandonados = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        total_vivos = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        total_trav_seguimento = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        total_negativos = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        total_positivos = new javax.swing.JLabel();
+        total_vagasOcupadas = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         remover1 = new javax.swing.JButton();
 
@@ -60,7 +48,6 @@ public class DadosEstatisticos extends javax.swing.JFrame {
         setTitle("Dados Estatísticos");
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
@@ -86,71 +73,41 @@ public class DadosEstatisticos extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Total de TRAV:");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel2.setText("Total de Vagas:");
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setText("Total de Funcionários:");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel3.setText("Total de Clientes:");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel4.setText("Total de Pacientes:");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel4.setText("Total de Veículos:");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Total de TRAVs suspensos:");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel5.setText("Total de Vagas ocupados:");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("Total de Agendamentos:");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel6.setText("Total de Vagas disponível:");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setText("Total de Obitos:");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jLabel8.setText("Total de Funcionários:");
 
-        total_funcionarios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        total_clientes.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        total_clientes.setText("00");
+
+        total_veiculos.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        total_veiculos.setText("00");
+
+        total_vagasDisponiveis.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        total_vagasDisponiveis.setText("00");
+
+        total_vagas.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        total_vagas.setText("00");
+
+        total_funcionarios.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         total_funcionarios.setText("00");
 
-        total_pacientes.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        total_pacientes.setText("00");
-
-        total_agendamento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        total_agendamento.setText("00");
-
-        total_trav.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        total_trav.setText("00");
-
-        total_obito.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        total_obito.setText("00");
-
-        total_trav_suspensos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        total_trav_suspensos.setText("00");
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel7.setText("Total de TRAVs abandonados:");
-
-        total_trav_abandonados.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        total_trav_abandonados.setText("00");
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel10.setText("Total de Pacientes Activos:");
-
-        total_vivos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        total_vivos.setText("00");
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel9.setText("Total de TRAVs em seguimento:");
-
-        total_trav_seguimento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        total_trav_seguimento.setText("00");
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel11.setText("Total de Pacientes Negativos:");
-
-        total_negativos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        total_negativos.setText("00");
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel12.setText("Total de Pacientes Positivos:");
-
-        total_positivos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        total_positivos.setText("00");
+        total_vagasOcupadas.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        total_vagasOcupadas.setText("00");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -159,34 +116,28 @@ public class DadosEstatisticos extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel10))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(total_funcionarios)
-                    .addComponent(total_pacientes)
-                    .addComponent(total_obito)
-                    .addComponent(total_agendamento)
-                    .addComponent(total_vivos))
-                .addGap(100, 100, 100)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(11, 11, 11)
+                    .addComponent(total_clientes)
+                    .addComponent(total_veiculos)
+                    .addComponent(total_funcionarios))
+                .addGap(50, 50, 50)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(total_trav)
-                    .addComponent(total_trav_suspensos)
-                    .addComponent(total_trav_abandonados)
-                    .addComponent(total_trav_seguimento)
-                    .addComponent(total_negativos)
-                    .addComponent(total_positivos))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addComponent(total_vagasDisponiveis))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(total_vagas)
+                            .addComponent(total_vagasOcupadas))))
                 .addGap(11, 11, 11))
         );
 
@@ -194,60 +145,38 @@ public class DadosEstatisticos extends javax.swing.JFrame {
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel2, jLabel5});
 
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {total_vagas, total_vagasDisponiveis, total_vagasOcupadas});
+
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(total_funcionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(total_trav, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(total_pacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(total_trav_suspensos, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(total_clientes, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(total_vagas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(total_veiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(total_vagasOcupadas, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(total_trav_abandonados, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(total_trav_seguimento, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(total_negativos, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(total_positivos, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(total_agendamento, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(total_obito, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(total_vivos, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(5, 5, 5))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(total_vagasDisponiveis, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(total_funcionarios, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(11, 11, 11))
         );
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel3, jLabel4, jLabel6, jLabel8});
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel2, jLabel5});
 
-        jPanel3.setBackground(new java.awt.Color(204, 255, 204));
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         remover1.setBackground(new java.awt.Color(204, 204, 204));
@@ -270,7 +199,7 @@ public class DadosEstatisticos extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(remover1)
-                .addGap(5, 5, 5))
+                .addGap(11, 11, 11))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -311,55 +240,33 @@ public class DadosEstatisticos extends javax.swing.JFrame {
     private void actualizar_total_funcionario(Integer total) {
         total_funcionarios.setText(String.valueOf(total));
     }
-    
+
     private void actualizar_total_paciente(Integer total) {
-        total_pacientes.setText(String.valueOf(total));
+        total_clientes.setText(String.valueOf(total));
+    }
+
+    private void actualizar_total_veiculo(Integer total) {
+        total_veiculos.setText(String.valueOf(total));
     }
     
-    private void actualizar_total_agendamento(Integer total) {
-        total_agendamento.setText(String.valueOf(total));
+    private void actualizar_total_vaga(Integer total) {
+        total_vagas.setText(String.valueOf(total));
     }
     
-    private void actualizar_total_obito(Integer total) {
-        total_obito.setText(String.valueOf(total));
+    private void actualizar_total_vagaOcupada(Integer total) {
+        total_vagasOcupadas.setText(String.valueOf(total));
     }
     
-    private void actualizar_total_vivo(Integer total) {
-        total_vivos.setText(String.valueOf(total));
+    private void actualizar_total_vagaDisponivel(Integer total) {
+        total_vagasDisponiveis.setText(String.valueOf(total));
     }
-    
-    private void actualizar_total_trav(Integer total) {
-        total_trav.setText(String.valueOf(total));
-    }
-    
-    private void actualizar_total_suspensos(Integer total) {
-        total_trav_suspensos.setText(String.valueOf(total));
-    }
-    
-    private void actualizar_total_abandonados(Integer total) {
-        total_trav_abandonados.setText(String.valueOf(total));
-    }
-    
-    private void actualizar_total_seguimentos(Integer total) {
-        total_trav_seguimento.setText(String.valueOf(total));
-    }
-    
-    private void actualizar_total_negativos(Integer total) {
-        total_negativos.setText(String.valueOf(total));
-    }
-    
-    private void actualizar_total_positivos(Integer total) {
-        total_positivos.setText(String.valueOf(total));
-    }
-    
+
     private void remover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remover1ActionPerformed
-        // TODO add your handling code here:
+
         dispose();
+        
     }//GEN-LAST:event_remover1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -388,38 +295,32 @@ public class DadosEstatisticos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DadosEstatisticos().setVisible(true);
+                try {
+                    new DadosEstatisticos().setVisible(true);
+                } catch (ErroSistema ex) {
+                    Logger.getLogger(DadosEstatisticos.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JButton remover1;
-    private javax.swing.JLabel total_agendamento;
+    private javax.swing.JLabel total_clientes;
     private javax.swing.JLabel total_funcionarios;
-    private javax.swing.JLabel total_negativos;
-    private javax.swing.JLabel total_obito;
-    private javax.swing.JLabel total_pacientes;
-    private javax.swing.JLabel total_positivos;
-    private javax.swing.JLabel total_trav;
-    private javax.swing.JLabel total_trav_abandonados;
-    private javax.swing.JLabel total_trav_seguimento;
-    private javax.swing.JLabel total_trav_suspensos;
-    private javax.swing.JLabel total_vivos;
+    private javax.swing.JLabel total_vagas;
+    private javax.swing.JLabel total_vagasDisponiveis;
+    private javax.swing.JLabel total_vagasOcupadas;
+    private javax.swing.JLabel total_veiculos;
     // End of variables declaration//GEN-END:variables
 }

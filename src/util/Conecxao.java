@@ -17,7 +17,7 @@ import java.sql.SQLException;
 public class Conecxao {
     
     private static Connection conexao;
-    private static final String URL_CONEXAO = "jdbc:sqlite:C:\\Users\\Departamento Tecnico\\Desktop\\repositorios\\parqueEstacionamento\\db\\db_parque_estacionamento.db";
+    private static final String URL_CONEXAO = "jdbc:sqlite:/Users/cmaemo/Desktop/Proxmeru/Repositórios/parqueEstacionamento/db/db_parque_estacionamento.db";
     private static final String USUARIO = "root";
     private static final String SENHA = "";
     

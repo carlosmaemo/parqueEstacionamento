@@ -5,7 +5,10 @@
  */
 package telas;
 
-import dao.UsuariosDAO;
+import dao.UsuarioDao;
+import excepcao.ErroSistema;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,7 +16,7 @@ import dao.UsuariosDAO;
  */
 public class ControleAcesso extends javax.swing.JFrame {
 
-    UsuariosDAO usuarioDAO = new UsuariosDAO();
+    UsuarioDao usuarioDAO = new UsuarioDao();
     private String userz;
     
     /**
@@ -46,7 +49,6 @@ public class ControleAcesso extends javax.swing.JFrame {
         setTitle("Controle de Acesso");
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
@@ -105,7 +107,6 @@ public class ControleAcesso extends javax.swing.JFrame {
                 .addGap(5, 5, 5))
         );
 
-        jPanel4.setBackground(new java.awt.Color(204, 255, 204));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         tbl_previlegios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -185,7 +186,11 @@ public class ControleAcesso extends javax.swing.JFrame {
 
     private void acessoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acessoActionPerformed
       
-        usuarioDAO.actualizar_previlegios(userz, acesso, tbl_previlegios);
+        try {
+            usuarioDAO.actualizar_previlegios(userz, acesso, tbl_previlegios);
+        } catch (ErroSistema ex) {
+            Logger.getLogger(ControleAcesso.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_acessoActionPerformed
 

@@ -11,6 +11,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import modelo.Usuario;
+import net.proteanit.sql.DbUtils;
 import util.Conecxao;
 
 public class UsuarioDao {
@@ -104,6 +105,38 @@ public class UsuarioDao {
 
     }
     
+    public String verificar_username(Usuario usuario) throws ErroSistema {
+
+        try {
+
+            Connection conexao = Conecxao.getConexao();
+
+            PreparedStatement ps = conexao.prepareStatement("Select * from usuario where username=? and password=?");
+
+            ps.setString(1, usuario.getUsername());
+            ps.setString(2, usuario.getPassword());
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+
+                String x = rs.getString("username");
+
+                Conecxao.fecharConexao();
+                return x;
+
+            }
+
+            Conecxao.fecharConexao();
+            return null;
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao carregar dados do usuário!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        return null;
+
+    }
+    
     public Integer verificar_id(Usuario usuario) throws ErroSistema {
 
         try {
@@ -169,7 +202,7 @@ public class UsuarioDao {
 
             ResultSet rs = ps.executeQuery();
 
-            //tbl.setModel(DbUtils.resultSetToTableModel(rs));
+            tbl.setModel(DbUtils.resultSetToTableModel(rs));
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao carregas usuários!", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -306,7 +339,7 @@ public class UsuarioDao {
 
             ResultSet rs = ps.executeQuery();
 
-            //tbl.setModel(DbUtils.resultSetToTableModel(rs));
+            tbl.setModel(DbUtils.resultSetToTableModel(rs));
 
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Erro ao carregas usuários!", "Erro", JOptionPane.ERROR_MESSAGE);

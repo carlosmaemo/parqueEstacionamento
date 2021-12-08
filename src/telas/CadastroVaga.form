@@ -29,7 +29,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Cadastro de Paciente"/>
+    <Property name="title" type="java.lang.String" value="Cadastro de Vaga"/>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="cc" green="ff" red="cc" type="rgb"/>
     </Property>
@@ -96,37 +96,41 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="nome" linkSize="2" min="-2" pref="200" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="329" max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" pref="80" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                          <Component id="localizacao" pref="232" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" pref="80" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                          <Component id="descricao" min="-2" pref="200" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="334" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel7" min="-2" pref="80" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                                   <Component id="pesquisa" min="-2" pref="200" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Component id="btnPesquisar" min="-2" pref="110" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                  <Component id="localizacao" linkSize="2" pref="200" max="32767" attributes="0"/>
-                                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="descricao" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel5" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Component id="jLabel3" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="quantidade" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Component id="nome" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
+                          <EmptySpace min="110" pref="694" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="255" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -135,20 +139,29 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="localizacao" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                          <Component id="nome" linkSize="3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="descricao" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLabel3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jLabel3" min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="localizacao" linkSize="3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jLabel4" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="nome" linkSize="3" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jLabel2" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="descricao" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="quantidade" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jLabel5" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel7" alignment="3" max="32767" attributes="0"/>
-                      <Component id="btnPesquisar" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="pesquisa" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                      <Component id="jLabel7" alignment="3" pref="30" max="32767" attributes="0"/>
+                      <Component id="pesquisa" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               </Group>
@@ -186,8 +199,8 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                <EtchetBorder/>
+              <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                <EmptyBorder/>
               </Border>
             </Property>
           </Properties>
@@ -201,8 +214,8 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                <EtchetBorder/>
+              <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                <EmptyBorder/>
               </Border>
             </Property>
           </Properties>
@@ -216,31 +229,8 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Pesquisa..."/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnPesquisar">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="cc" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="14" style="0"/>
-            </Property>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/icons/icons8-pesquisar-na-nuvem-24.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Pesquisar"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                <EtchetBorder bevelType="0"/>
-              </Border>
-            </Property>
-            <Property name="borderPainted" type="boolean" value="false"/>
-            <Property name="focusPainted" type="boolean" value="false"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPesquisarActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="descricao">
           <Properties>
@@ -248,8 +238,8 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                <EtchetBorder/>
+              <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                <EmptyBorder/>
               </Border>
             </Property>
           </Properties>
@@ -263,14 +253,38 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                <EtchetBorder/>
+              <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                <EmptyBorder/>
               </Border>
             </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesquisaActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="pesquisaKeyPressed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="quantidade">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EmptyBorderInfo">
+                <EmptyBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="quantidadeActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel5">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Lota&#xe7;&#xe3;o:"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -287,7 +301,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace pref="321" max="32767" attributes="0"/>
+                  <EmptySpace pref="383" max="32767" attributes="0"/>
                   <Component id="btnCadastrar" linkSize="4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                   <Component id="btnAlterar" linkSize="4" min="-2" pref="110" max="-2" attributes="0"/>
@@ -295,7 +309,7 @@
                   <Component id="btnRemover" linkSize="4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                   <Component id="btnCancelar" linkSize="4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="321" max="32767" attributes="0"/>
+                  <EmptySpace pref="384" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -439,7 +453,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                  <Component id="jScrollPane3" pref="27" max="32767" attributes="0"/>
+                  <Component id="jScrollPane3" pref="36" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -456,7 +470,7 @@
             <Component class="javax.swing.JTable" name="tbl_vagas_cadastrados">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="14" style="0"/>
+                  <Font name="Tahoma" size="16" style="0"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="3" rowCount="4">
@@ -465,6 +479,7 @@
                     <Column editable="false" title="Descri&#xe7;&#xe3;o" type="java.lang.String"/>
                   </Table>
                 </Property>
+                <Property name="autoscrolls" type="boolean" value="false"/>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">

@@ -1,16 +1,19 @@
 package telas;
 
-import dao.UsuariosDAO;
+import dao.UsuarioDao;
+import excepcao.ErroSistema;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import model.Usuarios;
+import modelo.Usuario;
 
 public class CadastroFuncionario extends javax.swing.JFrame {
 
-    UsuariosDAO usuarioDAO = new UsuariosDAO();
+    UsuarioDao usuarioDAO = new UsuarioDao();
     String click_tabela;
 
-    public CadastroFuncionario() {
+    public CadastroFuncionario() throws ErroSistema {
 
         initComponents();
 
@@ -183,11 +186,11 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jLabel9.setText("Tipo de User:");
 
         tipoUsuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione Tip. Usuario...", "Enfermeiro", "Médico", "Administrador" }));
+        tipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario", "Gestor", "Administrador" }));
         tipoUsuario.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         sexo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o sexo...", "Masculino", "Feminino" }));
+        sexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino" }));
         sexo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         sexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -386,7 +389,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(204, 255, 204));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        tbl_funcionarios_cadastrados.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tbl_funcionarios_cadastrados.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         tbl_funcionarios_cadastrados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -413,6 +416,7 @@ public class CadastroFuncionario extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl_funcionarios_cadastrados.setAutoscrolls(false);
         tbl_funcionarios_cadastrados.setShowVerticalLines(false);
         tbl_funcionarios_cadastrados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -499,48 +503,56 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
     private void tbl_funcionarios_cadastradosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_funcionarios_cadastradosMouseClicked
 
-        int linha = tbl_funcionarios_cadastrados.getSelectedRow();
-        click_tabela = (tbl_funcionarios_cadastrados.getModel().getValueAt(linha, 0).toString());
+        try {
+            int linha = tbl_funcionarios_cadastrados.getSelectedRow();
+            click_tabela = (tbl_funcionarios_cadastrados.getModel().getValueAt(linha, 0).toString());
 
-        Usuarios usuario_p = usuarioDAO.carregar_funcionario(click_tabela);
+            Usuario usuario_p = usuarioDAO.carregar_funcionario(click_tabela);
 
-        nome.setText(usuario_p.getNome());
-        apelido.setText(usuario_p.getApelido());
-        email.setText(usuario_p.getEmail());
-        username.setText(usuario_p.getUsername());
-        password.setText(usuario_p.getPassword());
-        password2.setText(usuario_p.getPassword());
-        sexo.setSelectedItem(usuario_p.getSexo());
-        tipoUsuario.setSelectedItem(usuario_p.getAcesso());
+            nome.setText(usuario_p.getNome());
+            apelido.setText(usuario_p.getApelido());
+            email.setText(usuario_p.getEmail());
+            username.setText(usuario_p.getUsername());
+            password.setText(usuario_p.getPassword());
+            password2.setText(usuario_p.getPassword());
+            sexo.setSelectedItem(usuario_p.getSexo());
+            tipoUsuario.setSelectedItem(usuario_p.getAcesso());
+        } catch (ErroSistema ex) {
+            Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_tbl_funcionarios_cadastradosMouseClicked
 
     private void cadastrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrar1ActionPerformed
         // TODO add your handling code here:
-if (nome.getText().isEmpty() | apelido.getText().isEmpty() | email.getText().isEmpty() | username.getText().isEmpty() | password.getText().isEmpty() | password2.getText().isEmpty()) {
+        if (nome.getText().isEmpty() | apelido.getText().isEmpty() | email.getText().isEmpty() | username.getText().isEmpty() | password.getText().isEmpty() | password2.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "Campo Vazio!", JOptionPane.WARNING_MESSAGE);
         } else if (password.getText().equals(password2.getText())) {
-            Usuarios usuario = new Usuarios();
-            usuario.setNome(nome.getText());
-            usuario.setApelido(apelido.getText());
-            usuario.setEmail(email.getText());
-            usuario.setSexo(sexo.getSelectedItem().toString());
-            usuario.setUsername(username.getText());
-            usuario.setPassword(password.getText());
-            usuario.setAcesso(tipoUsuario.getSelectedItem().toString());
+            try {
+                Usuario usuario = new Usuario();
+                usuario.setNome(nome.getText());
+                usuario.setApelido(apelido.getText());
+                usuario.setEmail(email.getText());
+                usuario.setSexo(sexo.getSelectedItem().toString());
+                usuario.setUsername(username.getText());
+                usuario.setPassword(password.getText());
+                usuario.setAcesso(tipoUsuario.getSelectedItem().toString());
 
-            usuarioDAO.salvar(usuario);
+                usuarioDAO.salvar(usuario);
 
-            nome.setText("");
-            apelido.setText("");
-            email.setText("");
-            username.setText("");
-            password.setText("");
-            password2.setText("");
-            sexo.setSelectedIndex(0);
-            tipoUsuario.setSelectedIndex(0);
+                nome.setText("");
+                apelido.setText("");
+                email.setText("");
+                username.setText("");
+                password.setText("");
+                password2.setText("");
+                sexo.setSelectedIndex(0);
+                tipoUsuario.setSelectedIndex(0);
 
-            usuarioDAO.actualizar_funcionarios(tbl_funcionarios_cadastrados);
+                usuarioDAO.actualizar_funcionarios(tbl_funcionarios_cadastrados);
+            } catch (ErroSistema ex) {
+                Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
         } else {
             JOptionPane.showMessageDialog(null, "As senhas não correspondem.", "Senha inválida!", JOptionPane.WARNING_MESSAGE);
@@ -553,28 +565,32 @@ if (nome.getText().isEmpty() | apelido.getText().isEmpty() | email.getText().isE
         if (nome.getText().isEmpty() | apelido.getText().isEmpty() | email.getText().isEmpty() | username.getText().isEmpty() | password.getText().isEmpty() | password2.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "Campo Vazio!", JOptionPane.WARNING_MESSAGE);
         } else if (password.getText().equals(password2.getText())) {
-            Usuarios usuario = new Usuarios();
-            usuario.setNome(nome.getText());
-            usuario.setApelido(apelido.getText());
-            usuario.setEmail(email.getText());
-            usuario.setSexo(sexo.getSelectedItem().toString());
-            usuario.setUsername(username.getText());
-            usuario.setPassword(password.getText());
-            usuario.setAcesso(tipoUsuario.getSelectedItem().toString());
-            usuario.setIdUsuario(Integer.parseInt(click_tabela));
-
-            usuarioDAO.actualizar_dados_funcionario(usuario);
-
-            nome.setText("");
-            apelido.setText("");
-            email.setText("");
-            username.setText("");
-            password.setText("");
-            password2.setText("");
-            sexo.setSelectedIndex(0);
-            tipoUsuario.setSelectedIndex(0);
-
-            usuarioDAO.actualizar_funcionarios(tbl_funcionarios_cadastrados);
+            try {
+                Usuario usuario = new Usuario();
+                usuario.setNome(nome.getText());
+                usuario.setApelido(apelido.getText());
+                usuario.setEmail(email.getText());
+                usuario.setSexo(sexo.getSelectedItem().toString());
+                usuario.setUsername(username.getText());
+                usuario.setPassword(password.getText());
+                usuario.setAcesso(tipoUsuario.getSelectedItem().toString());
+                usuario.setIdUsuario(Integer.parseInt(click_tabela));
+                
+                usuarioDAO.actualizar_dados_funcionario(usuario);
+                
+                nome.setText("");
+                apelido.setText("");
+                email.setText("");
+                username.setText("");
+                password.setText("");
+                password2.setText("");
+                sexo.setSelectedIndex(0);
+                tipoUsuario.setSelectedIndex(0);
+                
+                usuarioDAO.actualizar_funcionarios(tbl_funcionarios_cadastrados);
+            } catch (ErroSistema ex) {
+                Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
         } else {
             JOptionPane.showMessageDialog(null, "As senhas não correspondem.", "Senha inválida!", JOptionPane.WARNING_MESSAGE);
@@ -583,18 +599,22 @@ if (nome.getText().isEmpty() | apelido.getText().isEmpty() | email.getText().isE
 
     private void remover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_remover1ActionPerformed
 
-        usuarioDAO.deletar(Integer.parseInt(click_tabela));
-
-        nome.setText("");
-        apelido.setText("");
-        email.setText("");
-        username.setText("");
-        password.setText("");
-        password2.setText("");
-        sexo.setSelectedIndex(0);
-        tipoUsuario.setSelectedIndex(0);
-
-        usuarioDAO.actualizar_funcionarios(tbl_funcionarios_cadastrados);
+        try {
+            usuarioDAO.deletar(Integer.parseInt(click_tabela));
+            
+            nome.setText("");
+            apelido.setText("");
+            email.setText("");
+            username.setText("");
+            password.setText("");
+            password2.setText("");
+            sexo.setSelectedIndex(0);
+            tipoUsuario.setSelectedIndex(0);
+            
+            usuarioDAO.actualizar_funcionarios(tbl_funcionarios_cadastrados);
+        } catch (ErroSistema ex) {
+            Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_remover1ActionPerformed
 
@@ -636,7 +656,11 @@ if (nome.getText().isEmpty() | apelido.getText().isEmpty() | email.getText().isE
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadastroFuncionario().setVisible(true);
+                try {
+                    new CadastroFuncionario().setVisible(true);
+                } catch (ErroSistema ex) {
+                    Logger.getLogger(CadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

@@ -51,11 +51,12 @@ public class VagaDao {
 
         try {
             Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("INSERT INTO `vaga`(`nome`, `localizacao`, `descricao`) VALUES (?, ?, ?)");
+            PreparedStatement ps = conexao.prepareStatement("INSERT INTO `vaga`(`nome`, `localizacao`, `descricao`, `quantidade`) VALUES (?, ?, ?, ?)");
 
             ps.setString(1, vaga.getNome());
             ps.setString(2, vaga.getLocalizacao());
             ps.setString(3, vaga.getDescricao());
+            ps.setString(4, vaga.getQuantidade());
 
             ps.execute();
 
@@ -73,7 +74,7 @@ public class VagaDao {
         try {
 
             Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("Select idVaga as 'ID', nome as 'Nome', localizacao as 'Localização', descricao as 'Descrição' from vaga");
+            PreparedStatement ps = conexao.prepareStatement("Select idVaga as 'ID', nome as 'Nome', localizacao as 'Localização', descricao as 'Descrição', quantidade as 'Lotação' from vaga");
 
             ResultSet rs = ps.executeQuery();
 
@@ -92,12 +93,13 @@ public class VagaDao {
             Connection conexao = Conecxao.getConexao();
             PreparedStatement ps;
 
-            ps = conexao.prepareStatement("update vaga set nome=?, localizacao=?, descricao=? where idVaga=?");
+            ps = conexao.prepareStatement("update vaga set nome=?, localizacao=?, descricao=?, quantidade=? where idVaga=?");
 
             ps.setString(1, vaga.getNome());
             ps.setString(2, vaga.getLocalizacao());
             ps.setString(3, vaga.getDescricao());
-            ps.setInt(4, vaga.getIdVaga());
+            ps.setString(4, vaga.getQuantidade());
+            ps.setInt(5, vaga.getIdVaga());
 
             ps.execute();
             Conecxao.fecharConexao();
@@ -133,7 +135,7 @@ public class VagaDao {
 
         try {
             Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("Select idVaga as 'ID', nome as 'Nome', localizacao as 'Localização', descricao as 'Descrição' from vaga where id='" + idVaga + "'");
+            PreparedStatement ps = conexao.prepareStatement("Select idVaga as 'ID', nome as 'Nome', localizacao as 'Localização', descricao as 'Descrição', quantidade as 'Lotação' from vaga where id='" + idVaga + "'");
 
             ResultSet rs = ps.executeQuery();
 
@@ -144,6 +146,7 @@ public class VagaDao {
                 vaga.setNome(rs.getString("Nome"));
                 vaga.setLocalizacao(rs.getString("Localização"));
                 vaga.setDescricao(rs.getString("Descrição"));
+                vaga.setQuantidade(rs.getString("Lotação"));
                 
             }
 
@@ -162,7 +165,7 @@ public class VagaDao {
             
             Connection conexao = Conecxao.getConexao();
 
-            PreparedStatement ps = conexao.prepareStatement("Select idVaga as 'ID', nome as 'Nome', localizacao as 'Localização', descricao as 'Descrição' from vaga where nome LIKE '" + valor + "%'"
+            PreparedStatement ps = conexao.prepareStatement("Select idVaga as 'ID', nome as 'Nome', localizacao as 'Localização', descricao as 'Descrição', quantidade as 'Lotação' from vaga where nome LIKE '" + valor + "%'"
                     + "OR (localizacao LIKE '" + valor + "%')"
                     + "OR (descricao LIKE '" + valor + "%')");
 

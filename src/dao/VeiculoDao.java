@@ -247,4 +247,24 @@ public class VeiculoDao {
 
     }
     
+    public void carregar_cliente_filtro(String valor, JTable tbl) throws ErroSistema {
+
+        try {
+            
+            Connection conexao = Conecxao.getConexao();
+
+            PreparedStatement ps = conexao.prepareStatement("Select idCliente as 'ID', nome as 'Nome', apelido as 'Apelido', sexo as 'Sexo', contacto as 'Contacto', endereco as 'Endereço', tipoDocumento as 'Tipo Documento', nrDocumento as 'Nrº Documento' from cliente where nome LIKE '" + valor + "%'"
+                    + "OR (apelido LIKE '" + valor + "%')"
+                    + "OR (contacto LIKE '" + valor + "%')");
+
+            ResultSet rs = ps.executeQuery();
+
+            tbl.setModel(DbUtils.resultSetToTableModel(rs));
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao carregar dados do cliente!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
+    
 }

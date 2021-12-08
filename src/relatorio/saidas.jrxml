@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="425f506f-b0ce-4527-9095-c0406f83a005">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="adaptador"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value="IEVOVFJBREEgIEFTICw1NiwzOSxjNWUwMjA0Zi02YjI1LTQzZWUtYTAxMy0xYzY0MTNjZDM5MWY7"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="CARGA" uuid="11ef9eda-b19f-4a61-9f44-d9453a1cdad8">
+		<queryString language="SQL">
+			<![CDATA[select * from carga;]]>
+		</queryString>
+	</subDataset>
+	<subDataset name="Table Dataset 1" uuid="f8bc4f2d-9fdf-47c0-bbe4-f17fad7bfcb4"/>
+	<subDataset name="New Dataset 1" uuid="1d1385e3-696b-4f52-adcc-ac51e286b6a9"/>
+	<subDataset name="MAPHS" uuid="aecbb5d0-a9af-417c-85d6-e8b77fdc30c8"/>
+	<subDataset name="MAPHS2" uuid="f06880ad-19e1-43f3-a29d-29cddc8feb74"/>
+	<subDataset name="New Dataset 2" uuid="618f20bc-58b7-4fc4-92c1-60d24789848a"/>
+	<subDataset name="M_AGENDA" uuid="af5efd0d-fbac-4f6c-abce-ce018a9aaa62">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="adaptador"/>
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<queryString language="SQL">
+			<![CDATA[select * from entrada where estado="fora";]]>
+		</queryString>
+		<field name="idEntrada" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="idEntrada"/>
+			<property name="com.jaspersoft.studio.field.label" value="idEntrada"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="idVeiculo" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="idVeiculo"/>
+			<property name="com.jaspersoft.studio.field.label" value="idVeiculo"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="idCliente" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="idCliente"/>
+			<property name="com.jaspersoft.studio.field.label" value="idCliente"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="preco" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="preco"/>
+			<property name="com.jaspersoft.studio.field.label" value="preco"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="precoTotal" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="precoTotal"/>
+			<property name="com.jaspersoft.studio.field.label" value="precoTotal"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="dataEntrada" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="dataEntrada"/>
+			<property name="com.jaspersoft.studio.field.label" value="dataEntrada"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="dataSaida" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="dataSaida"/>
+			<property name="com.jaspersoft.studio.field.label" value="dataSaida"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="operador" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="operador"/>
+			<property name="com.jaspersoft.studio.field.label" value="operador"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="vagaNome" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="vagaNome"/>
+			<property name="com.jaspersoft.studio.field.label" value="vagaNome"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="veiculoMatricula" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="veiculoMatricula"/>
+			<property name="com.jaspersoft.studio.field.label" value="veiculoMatricula"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="veiculoMarca" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="veiculoMarca"/>
+			<property name="com.jaspersoft.studio.field.label" value="veiculoMarca"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="veiculoModelo" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="veiculoModelo"/>
+			<property name="com.jaspersoft.studio.field.label" value="veiculoModelo"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="veiculoCor" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="veiculoCor"/>
+			<property name="com.jaspersoft.studio.field.label" value="veiculoCor"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="veiculoTipo" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="veiculoTipo"/>
+			<property name="com.jaspersoft.studio.field.label" value="veiculoTipo"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="veiculoAno" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="veiculoAno"/>
+			<property name="com.jaspersoft.studio.field.label" value="veiculoAno"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="clienteNome" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="clienteNome"/>
+			<property name="com.jaspersoft.studio.field.label" value="clienteNome"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="clienteNrDocumento" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="clienteNrDocumento"/>
+			<property name="com.jaspersoft.studio.field.label" value="clienteNrDocumento"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="estado" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="estado"/>
+			<property name="com.jaspersoft.studio.field.label" value="estado"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="opValor" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="opValor"/>
+			<property name="com.jaspersoft.studio.field.label" value="opValor"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="opTroco" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="opTroco"/>
+			<property name="com.jaspersoft.studio.field.label" value="opTroco"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="opDivida" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="opDivida"/>
+			<property name="com.jaspersoft.studio.field.label" value="opDivida"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+		<field name="opOperador" class="java.lang.Object">
+			<property name="com.jaspersoft.studio.field.name" value="opOperador"/>
+			<property name="com.jaspersoft.studio.field.label" value="opOperador"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+		</field>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT  idEntrada ,
+	 idVeiculo ,
+	 idCliente ,
+	preco,
+	 precoTotal ,
+	 dataEntrada ,
+	 dataSaida ,
+	operador,
+	 vagaNome ,
+	 veiculoMatricula ,
+	 veiculoMarca ,
+	 veiculoModelo ,
+	 veiculoCor ,
+	 veiculoTipo ,
+	 veiculoAno ,
+	 clienteNome ,
+	 clienteNrDocumento ,
+	 opValor ,
+	 opTroco ,
+	 opDivida ,
+	 opOperador ,
+	estado
+FROM  ENTRADA 
+WHERE 
+	  ENTRADA .estado = 'fora']]>
+	</queryString>
+	<field name="idEntrada" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="idEntrada"/>
+		<property name="com.jaspersoft.studio.field.label" value="idEntrada"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="idVeiculo" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="idVeiculo"/>
+		<property name="com.jaspersoft.studio.field.label" value="idVeiculo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="idCliente" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="idCliente"/>
+		<property name="com.jaspersoft.studio.field.label" value="idCliente"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="preco" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="preco"/>
+		<property name="com.jaspersoft.studio.field.label" value="preco"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="precoTotal" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="precoTotal"/>
+		<property name="com.jaspersoft.studio.field.label" value="precoTotal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="dataEntrada" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="dataEntrada"/>
+		<property name="com.jaspersoft.studio.field.label" value="dataEntrada"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="dataSaida" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="dataSaida"/>
+		<property name="com.jaspersoft.studio.field.label" value="dataSaida"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="operador" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="operador"/>
+		<property name="com.jaspersoft.studio.field.label" value="operador"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="vagaNome" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="vagaNome"/>
+		<property name="com.jaspersoft.studio.field.label" value="vagaNome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="veiculoMatricula" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="veiculoMatricula"/>
+		<property name="com.jaspersoft.studio.field.label" value="veiculoMatricula"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="veiculoMarca" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="veiculoMarca"/>
+		<property name="com.jaspersoft.studio.field.label" value="veiculoMarca"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="veiculoModelo" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="veiculoModelo"/>
+		<property name="com.jaspersoft.studio.field.label" value="veiculoModelo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="veiculoCor" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="veiculoCor"/>
+		<property name="com.jaspersoft.studio.field.label" value="veiculoCor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="veiculoTipo" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="veiculoTipo"/>
+		<property name="com.jaspersoft.studio.field.label" value="veiculoTipo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="veiculoAno" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="veiculoAno"/>
+		<property name="com.jaspersoft.studio.field.label" value="veiculoAno"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="clienteNome" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="clienteNome"/>
+		<property name="com.jaspersoft.studio.field.label" value="clienteNome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="clienteNrDocumento" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="clienteNrDocumento"/>
+		<property name="com.jaspersoft.studio.field.label" value="clienteNrDocumento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="opValor" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="opValor"/>
+		<property name="com.jaspersoft.studio.field.label" value="opValor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="opTroco" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="opTroco"/>
+		<property name="com.jaspersoft.studio.field.label" value="opTroco"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="opDivida" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="opDivida"/>
+		<property name="com.jaspersoft.studio.field.label" value="opDivida"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="opOperador" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="opOperador"/>
+		<property name="com.jaspersoft.studio.field.label" value="opOperador"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<field name="estado" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.name" value="estado"/>
+		<property name="com.jaspersoft.studio.field.label" value="estado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="entrada"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="41">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="41" uuid="1887af2a-d278-4dd4-a4df-b3ff4df902b8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REGISTO DE SAÍDAS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="265">
+			<componentElement>
+				<reportElement key="table 6" x="0" y="0" width="802" height="265" uuid="44f9075f-49f0-4ccb-90c8-97306c4fa73c"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="M_AGENDA" uuid="be62766c-9421-47bc-9732-6b93d7eb8012">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="240" uuid="f1af9092-75c4-42f9-a7da-6b93e6085b71">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="240" height="30" uuid="b5e6ba5c-26d2-4c14-a0ce-0e7009f6e837"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="16"/>
+								</textElement>
+								<text><![CDATA[Nome Completo]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="240" height="30" uuid="b27039dd-f98d-4059-8d0f-a63a14312f44"/>
+								<textElement verticalAlignment="Middle" markup="none">
+									<font size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[""+$F{clienteNome}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="150" uuid="43422372-ac69-4c23-800c-b4962cd9a924">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="150" height="30" uuid="fad891c0-99e7-42b2-99b2-08fcde81d3af"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="16"/>
+								</textElement>
+								<text><![CDATA[Matrícula]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="150" height="30" uuid="7a589483-ddaf-459c-a3ff-4961b9ee66ee"/>
+								<textElement verticalAlignment="Middle" markup="none">
+									<font size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[""+$F{veiculoMatricula}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="150" uuid="8ebdb868-8ef1-46b1-a634-a10d92e1c783">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="150" height="30" uuid="d9aad469-8624-4954-8932-f99e12b0ead3"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="16"/>
+								</textElement>
+								<text><![CDATA[Data Entrada]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="150" height="30" uuid="645b751d-1f66-4dbd-9df4-64cbe22a787a"/>
+								<textElement verticalAlignment="Middle">
+									<font size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[""+$F{dataEntrada}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="150" uuid="fd0d7561-8dde-4b7f-be30-754d7eb3ade2">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="150" height="30" uuid="50760652-cbf0-4aee-b5e7-8eb910beee6f"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="16"/>
+								</textElement>
+								<text><![CDATA[Data Saída]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="150" height="30" uuid="dae12bff-d8a2-4edc-a84e-93ca2abbb786"/>
+								<textElement verticalAlignment="Middle" markup="none">
+									<font size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[""+$F{dataSaida}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="150" uuid="731c9463-6932-4924-8dca-1c666c416b52">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+						<jr:tableHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="150" height="30" uuid="75b13886-edec-4bfe-8326-c60f8ee686f5"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font size="16"/>
+								</textElement>
+								<text><![CDATA[Vaga]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell height="30" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="150" height="30" uuid="fb6be070-56cd-477a-9cf4-03ccb9d1bcb7"/>
+								<textElement verticalAlignment="Middle" markup="none">
+									<font size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[""+$F{vagaNome}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

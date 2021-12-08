@@ -9,6 +9,7 @@ import dao.UsuarioDao;
 import excepcao.ErroSistema;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,15 +17,15 @@ import java.util.logging.Logger;
  */
 public class Main extends javax.swing.JFrame {
 
-    private String userx;
+    private String userx, usernamenovo;
     private int xx;
 
-    public Main(String nomex, String user, Integer idUser) {
+    public Main(String nomex, String user, Integer idUser, String username) {
         userx = user;
         xx = idUser;
-
         initComponents();
 
+        usernamenovo = username;
         verificar_dados_usuario(nomex, user);
     }
 
@@ -38,11 +39,9 @@ public class Main extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jButton10 = new javax.swing.JButton();
@@ -62,15 +61,15 @@ public class Main extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        sessaoNome = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("MAPHS");
+        setTitle("Parque de Estacionamento");
         setBackground(new java.awt.Color(204, 204, 204));
         setResizable(false);
 
@@ -91,20 +90,6 @@ public class Main extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton5.setBackground(new java.awt.Color(204, 204, 204));
-        jButton5.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-adicionar-recibo-64.png"))); // NOI18N
-        jButton5.setText("Lotação (Verificar)");
-        jButton5.setBorderPainted(false);
-        jButton5.setFocusPainted(false);
-        jButton5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton5.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
             }
         });
 
@@ -150,20 +135,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton9.setBackground(new java.awt.Color(204, 204, 204));
-        jButton9.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-visualizar-arquivo-64.png"))); // NOI18N
-        jButton9.setText("Registo (Vagas)");
-        jButton9.setBorderPainted(false);
-        jButton9.setFocusPainted(false);
-        jButton9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton9.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-
         jButton13.setBackground(new java.awt.Color(204, 204, 204));
         jButton13.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-visualizar-arquivo-64.png"))); // NOI18N
@@ -185,7 +156,6 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,9 +166,7 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(9, 9, 9)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
+                .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -214,11 +182,8 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jButton13))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9)
                     .addComponent(jButton7)
                     .addComponent(jButton8))
-                .addGap(11, 11, 11)
-                .addComponent(jButton5)
                 .addGap(11, 11, 11))
         );
 
@@ -353,8 +318,8 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 748, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 748, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -421,26 +386,32 @@ public class Main extends javax.swing.JFrame {
 
         jMenuItem3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jMenuItem3.setText("Entrada de Veículos");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem3);
 
         jMenuItem8.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jMenuItem8.setText("Saída de Veículos");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem8);
 
         jMenuItem10.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jMenuItem10.setText("Dados Estatísticos");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem10);
 
         jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Lotação");
-        jMenu3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-
-        jMenuItem5.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jMenuItem5.setText("Verificar");
-        jMenu3.add(jMenuItem5);
-
-        jMenuBar1.add(jMenu3);
 
         jMenu6.setText("Ferramentas");
         jMenu6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -461,9 +432,28 @@ public class Main extends javax.swing.JFrame {
 
         jMenuItem6.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jMenuItem6.setText("Informações");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem6);
 
         jMenuBar1.add(jMenu4);
+
+        jMenu3.setText("Sessão");
+        jMenu3.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+
+        sessaoNome.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        sessaoNome.setText("Sair (Nome do Funcionário)");
+        sessaoNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sessaoNomeActionPerformed(evt);
+            }
+        });
+        jMenu3.add(sessaoNome);
+
+        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -490,8 +480,6 @@ public class Main extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         try {
-            // TODO add your handling code here:
-
             CadastroCliente cadastroCliente = new CadastroCliente();
             cadastroCliente.setVisible(true);
         } catch (ErroSistema ex) {
@@ -501,39 +489,25 @@ public class Main extends javax.swing.JFrame {
 
     private void verificar_dados_usuario(String nomex, String userj) {
 
-        if ("Enfermeiro".equals(userj)) {
-            jButton14.setEnabled(false);
-            jButton17.setEnabled(false);
-            jButton15.setEnabled(false);
-            jButton16.setEnabled(false);
-            jButton8.setEnabled(false);
+        if ("Usuario".equals(userj)) {
+
+            jButton6.setEnabled(false);
             jButton11.setEnabled(false);
             jButton12.setEnabled(false);
-            jButton5.setEnabled(false);
             jMenuItem2.setEnabled(false);
-            jMenuItem6.setEnabled(false);
-            jMenuItem9.setEnabled(false);
-            jButton12.setEnabled(false);
-        } else if ("Médico".equals(userj)) {
-            jButton1.setEnabled(false);
-            jMenuItem1.setEnabled(false);
-            jMenuItem2.setEnabled(false);
-            jMenuItem7.setEnabled(false);
-            jButton7.setEnabled(false);
-            jButton14.setEnabled(false);
+            jMenuItem10.setEnabled(false);
+
+        } else if ("Gestor".equals(userj)) {
+
             jButton11.setEnabled(false);
+            jMenuItem2.setEnabled(false);
 
         }
 
         nome.setText(nomex);
+        sessaoNome.setText("Sair (" + nomex + ")");
 
     }
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-//        Tela_Processo t_processo = new Tela_Processo(xx);
-//        t_processo.setVisible(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
 
@@ -547,15 +521,25 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-//        Tela_Agendar_Programa tl_agendar_programa = new Tela_Agendar_Programa(nome.getText());
-//        tl_agendar_programa.setVisible(true);
+
+        try {
+            RegistoSaida registoSaida = new RegistoSaida(nome.getText());
+            registoSaida.setVisible(true);
+        } catch (ErroSistema ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-//        Tela_Realizar_Seguimento tl_realizar_seguimento = new Tela_Realizar_Seguimento(null);
-//        tl_realizar_seguimento.setVisible(true);
+
+        try {
+            CadastroEntrada cadastroEntrada = new CadastroEntrada(nome.getText());
+            cadastroEntrada.setVisible(true);
+        } catch (ErroSistema ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -565,36 +549,45 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
 
-        CadastroFuncionario cadastroFuncionario = new CadastroFuncionario();
-        cadastroFuncionario.setVisible(true);
+        try {
+            CadastroFuncionario cadastroFuncionario = new CadastroFuncionario();
+            cadastroFuncionario.setVisible(true);
+        } catch (ErroSistema ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
 
-        DadosEstatisticos dadosEstatisticos = new DadosEstatisticos();
-        dadosEstatisticos.setVisible(true);
+        try {
+            DadosEstatisticos dadosEstatisticos = new DadosEstatisticos();
+            dadosEstatisticos.setVisible(true);
+        } catch (ErroSistema ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
 
-        CadastroFuncionario cadastroFuncionario = new CadastroFuncionario();
-        cadastroFuncionario.setVisible(true);
+        try {
+            CadastroFuncionario cadastroFuncionario = new CadastroFuncionario();
+            cadastroFuncionario.setVisible(true);
+        } catch (ErroSistema ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        // TODO add your handling code here:
-        Senha senha = new Senha();
+
+        Senha senha = new Senha(usernamenovo);
         senha.setVisible(true);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         CadastroCliente cadastroCliente;
         try {
             cadastroCliente = new CadastroCliente();
@@ -607,16 +600,16 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
+        try {
+            CadastroVaga cadastroVaga = new CadastroVaga();
+            cadastroVaga.setVisible(true);
+        } catch (ErroSistema ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
-
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
-        
+
         CadastroVeiculo cadastroVeiculo;
         try {
             cadastroVeiculo = new CadastroVeiculo();
@@ -625,12 +618,78 @@ public class Main extends javax.swing.JFrame {
         } catch (ErroSistema ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        // TODO add your handling code here:
+
+        CadastroVeiculo cadastroVeiculo;
+        try {
+            cadastroVeiculo = new CadastroVeiculo();
+
+            cadastroVeiculo.setVisible(true);
+        } catch (ErroSistema ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+
+        Sobre sobre = new Sobre();
+        sobre.setVisible(true);
+
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+
+        try {
+            CadastroEntrada cadastroEntrada = new CadastroEntrada(nome.getText());
+            cadastroEntrada.setVisible(true);
+        } catch (ErroSistema ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+
+        try {
+            RegistoSaida registoSaida = new RegistoSaida(nome.getText());
+            registoSaida.setVisible(true);
+        } catch (ErroSistema ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+
+        try {
+            DadosEstatisticos dadosEstatisticos = new DadosEstatisticos();
+            dadosEstatisticos.setVisible(true);
+        } catch (ErroSistema ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void sessaoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sessaoNomeActionPerformed
+
+        int sair = JOptionPane.showConfirmDialog(null, "Deseja mesmo terminar a sessão?", "Terminar a sessão", JOptionPane.YES_NO_OPTION);
+        if (sair == JOptionPane.YES_OPTION) {
+
+            dispose();
+
+            Login login = new Login();
+            login.setVisible(true);
+
+        }
+
+    }//GEN-LAST:event_sessaoNomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -665,7 +724,7 @@ public class Main extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main(null, null, null).setVisible(true);
+                new Main(null, null, null, null).setVisible(true);
             }
         });
     }
@@ -676,11 +735,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -693,7 +750,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
@@ -703,6 +759,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel nome;
+    private javax.swing.JMenuItem sessaoNome;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }

@@ -31,9 +31,10 @@ public class CadastroVaga extends javax.swing.JFrame {
         localizacao = new javax.swing.JTextField();
         nome = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        btnPesquisar = new javax.swing.JButton();
         descricao = new javax.swing.JTextField();
         pesquisa = new javax.swing.JTextField();
+        quantidade = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnCadastrar = new javax.swing.JButton();
         btnAlterar = new javax.swing.JButton();
@@ -57,7 +58,7 @@ public class CadastroVaga extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Paciente");
+        setTitle("Cadastro de Vaga");
         setBackground(new java.awt.Color(204, 255, 204));
         setMinimumSize(new java.awt.Dimension(977, 515));
         setResizable(false);
@@ -74,7 +75,7 @@ public class CadastroVaga extends javax.swing.JFrame {
         jLabel4.setText("Localização:");
 
         localizacao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        localizacao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        localizacao.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         localizacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 localizacaoActionPerformed(evt);
@@ -82,7 +83,7 @@ public class CadastroVaga extends javax.swing.JFrame {
         });
 
         nome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        nome.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        nome.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         nome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeActionPerformed(evt);
@@ -91,22 +92,10 @@ public class CadastroVaga extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Pesquisa...");
-
-        btnPesquisar.setBackground(new java.awt.Color(204, 204, 204));
-        btnPesquisar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        btnPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8-pesquisar-na-nuvem-24.png"))); // NOI18N
-        btnPesquisar.setText("Pesquisar");
-        btnPesquisar.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
-        btnPesquisar.setBorderPainted(false);
-        btnPesquisar.setFocusPainted(false);
-        btnPesquisar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesquisarActionPerformed(evt);
-            }
-        });
+        jLabel7.setEnabled(false);
 
         descricao.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        descricao.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        descricao.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         descricao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 descricaoActionPerformed(evt);
@@ -114,64 +103,85 @@ public class CadastroVaga extends javax.swing.JFrame {
         });
 
         pesquisa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        pesquisa.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pesquisa.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         pesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pesquisaActionPerformed(evt);
             }
         });
+        pesquisa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                pesquisaKeyPressed(evt);
+            }
+        });
+
+        quantidade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        quantidade.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        quantidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quantidadeActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setText("Lotação:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
+                .addGap(11, 11, 11)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(20, 20, 20)
-                        .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(329, 329, 329)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(localizacao, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
+                        .addGap(53, 53, 53)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(descricao, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(334, 334, 334)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(18, 18, 18)
-                                .addComponent(pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(2, 2, 2)
-                                .addComponent(jLabel4)
-                                .addGap(11, 11, 11)
-                                .addComponent(localizacao, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                .addGap(53, 53, 53)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(descricao, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, 0)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(110, 694, Short.MAX_VALUE)))
+                .addContainerGap(255, Short.MAX_VALUE))
         );
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {localizacao, nome});
-
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(3, 3, 3)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(localizacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel2)
-                        .addComponent(descricao, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(localizacao, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(descricao, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(quantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                    .addComponent(pesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11))
         );
 
@@ -236,7 +246,7 @@ public class CadastroVaga extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(321, Short.MAX_VALUE)
+                .addContainerGap(383, Short.MAX_VALUE)
                 .addComponent(btnCadastrar)
                 .addGap(11, 11, 11)
                 .addComponent(btnAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -244,7 +254,7 @@ public class CadastroVaga extends javax.swing.JFrame {
                 .addComponent(btnRemover)
                 .addGap(11, 11, 11)
                 .addComponent(btnCancelar)
-                .addContainerGap(321, Short.MAX_VALUE))
+                .addContainerGap(384, Short.MAX_VALUE))
         );
 
         jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAlterar, btnCadastrar, btnCancelar, btnRemover});
@@ -266,7 +276,7 @@ public class CadastroVaga extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(204, 255, 204));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        tbl_vagas_cadastrados.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tbl_vagas_cadastrados.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         tbl_vagas_cadastrados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -293,6 +303,7 @@ public class CadastroVaga extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tbl_vagas_cadastrados.setAutoscrolls(false);
         tbl_vagas_cadastrados.setShowVerticalLines(false);
         tbl_vagas_cadastrados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -314,7 +325,7 @@ public class CadastroVaga extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                 .addGap(5, 5, 5))
         );
 
@@ -347,17 +358,16 @@ public class CadastroVaga extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void localizacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_localizacaoActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_localizacaoActionPerformed
 
     private void nomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_nomeActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
-        // TODO add your handling code here:
 
-        if (nome.getText().isEmpty() | localizacao.getText().isEmpty() | descricao.getText().isEmpty()) {
+        if (nome.getText().isEmpty() | localizacao.getText().isEmpty() | descricao.getText().isEmpty() | quantidade.getText().isEmpty()) {
 
             JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "Campo Vazio!", JOptionPane.WARNING_MESSAGE);
 
@@ -367,6 +377,7 @@ public class CadastroVaga extends javax.swing.JFrame {
             vaga.setNome(nome.getText());
             vaga.setLocalizacao(localizacao.getText());
             vaga.setDescricao(descricao.getText());
+            vaga.setQuantidade(quantidade.getText());
 
             try {
                 if (vagaDao.verificar_vaga(vaga.getNome()) == true) {
@@ -376,7 +387,8 @@ public class CadastroVaga extends javax.swing.JFrame {
                     nome.setText("");
                     localizacao.setText("");
                     descricao.setText("");
-                    
+                    quantidade.setText("");
+
                     vagaDao.actualizar_vagas(tbl_vagas_cadastrados);
                 }
             } catch (ErroSistema ex) {
@@ -399,6 +411,7 @@ public class CadastroVaga extends javax.swing.JFrame {
                 vaga.setNome(nome.getText());
                 vaga.setLocalizacao(localizacao.getText());
                 vaga.setDescricao(descricao.getText());
+                vaga.setQuantidade(quantidade.getText());
                 vaga.setIdVaga(Integer.parseInt(click_tabela));
 
                 vagaDao.actualizar_dados_vaga(vaga);
@@ -406,6 +419,7 @@ public class CadastroVaga extends javax.swing.JFrame {
                 nome.setText("");
                 localizacao.setText("");
                 descricao.setText("");
+                quantidade.setText("");
 
                 vagaDao.actualizar_vagas(tbl_vagas_cadastrados);
 
@@ -419,16 +433,17 @@ public class CadastroVaga extends javax.swing.JFrame {
     private void tbl_vagas_cadastradosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_vagas_cadastradosMouseClicked
 
         try {
-            
+
             int linha = tbl_vagas_cadastrados.getSelectedRow();
             click_tabela = (tbl_vagas_cadastrados.getModel().getValueAt(linha, 0).toString());
-            
+
             Vaga vaga_p = vagaDao.carregar_vaga(click_tabela);
-            
+
             nome.setText(vaga_p.getNome());
             localizacao.setText(vaga_p.getLocalizacao());
             descricao.setText(vaga_p.getDescricao());
-            
+            quantidade.setText(vaga_p.getQuantidade());
+
         } catch (ErroSistema ex) {
             Logger.getLogger(CadastroVaga.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -440,11 +455,12 @@ public class CadastroVaga extends javax.swing.JFrame {
         if (click_tabela != null) {
             try {
                 vagaDao.deletar(Integer.parseInt(click_tabela));
-                
+
                 nome.setText("");
                 localizacao.setText("");
                 descricao.setText("");
-                
+                quantidade.setText("");
+
                 vagaDao.actualizar_vagas(tbl_vagas_cadastrados);
             } catch (ErroSistema ex) {
                 Logger.getLogger(CadastroVaga.class.getName()).log(Level.SEVERE, null, ex);
@@ -468,16 +484,6 @@ public class CadastroVaga extends javax.swing.JFrame {
 
     }//GEN-LAST:event_alterar1ActionPerformed
 
-    private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
-
-        try {
-            vagaDao.carregar_vaga_filtro(pesquisa.getText(), tbl_vagas_cadastrados);
-        } catch (ErroSistema ex) {
-            Logger.getLogger(CadastroVaga.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }//GEN-LAST:event_btnPesquisarActionPerformed
-
     private void descricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descricaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_descricaoActionPerformed
@@ -485,6 +491,20 @@ public class CadastroVaga extends javax.swing.JFrame {
     private void pesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesquisaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pesquisaActionPerformed
+
+    private void quantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantidadeActionPerformed
+
+    private void pesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesquisaKeyPressed
+
+        try {
+            vagaDao.carregar_vaga_filtro(pesquisa.getText(), tbl_vagas_cadastrados);
+        } catch (ErroSistema ex) {
+            Logger.getLogger(CadastroVaga.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_pesquisaKeyPressed
 
     public static void main(String args[]) {
 
@@ -521,12 +541,12 @@ public class CadastroVaga extends javax.swing.JFrame {
     private javax.swing.JButton btnAlterar;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnPesquisar;
     private javax.swing.JButton btnRemover;
     private javax.swing.JTextField descricao;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -535,6 +555,7 @@ public class CadastroVaga extends javax.swing.JFrame {
     private javax.swing.JTextField localizacao;
     private javax.swing.JTextField nome;
     private javax.swing.JTextField pesquisa;
+    private javax.swing.JTextField quantidade;
     private javax.swing.JTable tbl_vagas_cadastrados;
     // End of variables declaration//GEN-END:variables
 }

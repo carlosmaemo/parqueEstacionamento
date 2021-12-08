@@ -5,6 +5,7 @@ public class Vaga {
     private Integer idVaga;
     private String nome;    
     private String localizacao;
+    private String quantidade;
     private String descricao;  
 
     public Integer getIdVaga() {
@@ -39,6 +40,12 @@ public class Vaga {
         this.descricao = descricao;
     }
 
-    
+    public String getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(String quantidade) {
+        this.quantidade = quantidade;
+    }
     
 }

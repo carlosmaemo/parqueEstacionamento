@@ -9,10 +9,13 @@ import modelo.Usuario;
 
 public class Senha extends javax.swing.JFrame {
 
-    UsuarioDao usuarioDAO = new UsuarioDao();
-
-    public Senha() {
+    UsuarioDao usuarioDao = new UsuarioDao();
+    String usernamex;
+    
+    public Senha(String username) {
+        usernamex = username;
         initComponents();
+        senha_username.setText(username);
     }
 
     @SuppressWarnings("unchecked")
@@ -34,7 +37,10 @@ public class Senha extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Configurações");
+        setBackground(new java.awt.Color(204, 204, 204));
+        setResizable(false);
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -78,11 +84,11 @@ public class Senha extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
+                .addGap(5, 5, 5)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(salvar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cancelar))
-                .addGap(11, 11, 11))
+                .addGap(5, 5, 5))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -99,31 +105,36 @@ public class Senha extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Username:");
 
+        senha_username.setEditable(false);
         senha_username.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         senha_username.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        senha_username.setEnabled(false);
         senha_username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 senha_usernameActionPerformed(evt);
             }
         });
 
+        senha_nova.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         senha_nova.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 senha_novaActionPerformed(evt);
             }
         });
 
+        senha_conf.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        senha_atual.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(senha_atual, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(senha_atual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel8)
@@ -136,8 +147,8 @@ public class Senha extends javax.swing.JFrame {
                                 .addGap(5, 5, 5)))
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(senha_username, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(senha_nova, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(senha_conf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(senha_nova, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(senha_conf, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(5, 5, 5))
         );
 
@@ -149,25 +160,24 @@ public class Senha extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(senha_username, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(senha_username, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(senha_atual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(senha_atual, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(senha_nova, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(senha_nova, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(senha_conf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(senha_conf, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5))
         );
 
         jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {senha_atual, senha_conf, senha_nova, senha_username});
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
@@ -216,6 +226,7 @@ public class Senha extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
@@ -225,11 +236,9 @@ public class Senha extends javax.swing.JFrame {
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
         // TODO add your handling code here:
-        if (senha_username.getText().isEmpty() | senha_atual.getText().isEmpty() | senha_nova.getText().isEmpty() | senha_conf.getText().isEmpty()) {
+        if (senha_atual.getText().isEmpty() | senha_nova.getText().isEmpty() | senha_conf.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos.", "Campo Vazio!", JOptionPane.WARNING_MESSAGE);
         } else if (senha_nova.getText().equals(senha_conf.getText())) {
-
-            UsuarioDao dao = new UsuarioDao();
 
             Usuario usuario = new Usuario();
             usuario.setPassword(senha_atual.getText());
@@ -237,7 +246,7 @@ public class Senha extends javax.swing.JFrame {
             usuario.setUsername(senha_username.getText());
 
             try {
-                if (dao.entrar(usuario) == false) {
+                if (usuarioDao.entrar(usuario) == false) {
                     JOptionPane.showMessageDialog(null, "Dados incorreto!", "Falha", JOptionPane.WARNING_MESSAGE);
                     return;
                 } else {
@@ -246,12 +255,11 @@ public class Senha extends javax.swing.JFrame {
                     usuario.setPassword_nova(senha_nova.getText());
                     usuario.setUsername(senha_username.getText());
                     
-                    usuarioDAO.salvar_senha(usuario);
+                    usuarioDao.salvar_senha(usuario);
                     
                     senha_atual.setText("");
                     senha_nova.setText("");
                     senha_conf.setText("");
-                    senha_username.setText("");
                     
                     dispose();
                     
@@ -304,7 +312,7 @@ public class Senha extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Senha().setVisible(true);
+                new Senha(null).setVisible(true);
             }
         });
     }

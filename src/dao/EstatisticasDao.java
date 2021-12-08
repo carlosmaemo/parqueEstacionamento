@@ -33,10 +33,10 @@ public class EstatisticasDao {
         return null;
     }
 
-    public Integer total_pacientes()throws ErroSistema {
+    public Integer total_pacientes() throws ErroSistema {
         try {
             Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("Select * from paciente");
+            PreparedStatement ps = conexao.prepareStatement("Select * from cliente");
             ResultSet rs = ps.executeQuery();
 
             int total = 0;
@@ -46,15 +46,62 @@ public class EstatisticasDao {
             return total;
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao carregar pacientes!", "Erro", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro ao carregar clientes!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        return null;
+    }
+    
+    public Integer total_veiculos() throws ErroSistema {
+        try {
+            Connection conexao = Conecxao.getConexao();
+            PreparedStatement ps = conexao.prepareStatement("Select * from veiculo");
+            ResultSet rs = ps.executeQuery();
+
+            int total = 0;
+            while (rs.next()) {
+                total++;
+            }
+            return total;
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao carregar veículos!", "Erro", JOptionPane.ERROR_MESSAGE);
         }
         return null;
     }
 
-    public Integer total_agendamentos()throws ErroSistema {
+    public Integer total_vagas() throws ErroSistema {
         try {
             Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("Select * from agenda");
+            PreparedStatement ps = conexao.prepareStatement("Select * from vaga");
+            PreparedStatement ps2 = conexao.prepareStatement("Select * from entrada where estado ='dentro'");
+            ResultSet rs = ps.executeQuery();
+            ResultSet rs2 = ps2.executeQuery();
+
+            int total = 0;
+            while (rs.next()) {
+                
+                total = total + Integer.parseInt(rs.getString("quantidade"));
+                
+            }
+            
+            while (rs2.next()) {
+                
+                total++;
+                
+            }
+            
+            return total;
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        return null;
+    }
+    
+    public Integer total_vagasOcupadas() throws ErroSistema {
+        try {
+            Connection conexao = Conecxao.getConexao();
+            PreparedStatement ps = conexao.prepareStatement("Select * from entrada where estado ='dentro'");
             ResultSet rs = ps.executeQuery();
 
             int total = 0;
@@ -68,16 +115,18 @@ public class EstatisticasDao {
         }
         return null;
     }
-
-    public Integer total_obitos() throws ErroSistema{
+    
+       public Integer total_vagasDisponiveis() throws ErroSistema {
         try {
             Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("Select * from paciente where obito ='1'");
+            PreparedStatement ps = conexao.prepareStatement("Select * from vaga");
             ResultSet rs = ps.executeQuery();
 
             int total = 0;
             while (rs.next()) {
-                total++;
+                
+                total = total + Integer.parseInt(rs.getString("quantidade"));
+                
             }
             return total;
 
@@ -86,131 +135,5 @@ public class EstatisticasDao {
         }
         return null;
     }
-
-    public Integer total_vivos() throws ErroSistema{
-        try {
-            Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("Select * from paciente where obito ='0'");
-            ResultSet rs = ps.executeQuery();
-
-            int total = 0;
-            while (rs.next()) {
-                total++;
-            }
-            return total;
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        }
-        return null;
-    }
-
-    public Integer total_travs()throws ErroSistema {
-        try {
-            Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("Select * from travs");
-            ResultSet rs = ps.executeQuery();
-
-            int total = 0;
-            while (rs.next()) {
-                total++;
-            }
-            return total;
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        }
-        return null;
-    }
-
-    public Integer total_travs_suspensos()throws ErroSistema {
-        try {
-            Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("Select * from travs where suspender ='1'");
-            ResultSet rs = ps.executeQuery();
-
-            int total = 0;
-            while (rs.next()) {
-                total++;
-            }
-            return total;
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        }
-        return null;
-    }
-
-    public Integer total_travs_abandonados()throws ErroSistema {
-        try {
-            Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("Select * from travs where abandonar ='1'");
-            ResultSet rs = ps.executeQuery();
-
-            int total = 0;
-            while (rs.next()) {
-                total++;
-            }
-            return total;
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        }
-        return null;
-    }
-
-    public Integer total_travs_seguimento()throws ErroSistema {
-        try {
-            Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("Select * from travs where suspender ='0' and abandonar ='0'");
-            ResultSet rs = ps.executeQuery();
-
-            int total = 0;
-            while (rs.next()) {
-                total++;
-            }
-            return total;
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        }
-        return null;
-    }
-
-    public Integer total_negativos()throws ErroSistema {
-        try {
-            Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("Select * from paciente where resultado ='Negativo'");
-            ResultSet rs = ps.executeQuery();
-
-            int total = 0;
-            while (rs.next()) {
-                total++;
-            }
-            return total;
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        }
-        return null;
-    }
-
-    public Integer total_positivos() throws ErroSistema{
-        try {
-            Connection conexao = Conecxao.getConexao();
-            PreparedStatement ps = conexao.prepareStatement("Select * from paciente where resultado ='Positivo'");
-            ResultSet rs = ps.executeQuery();
-
-            int total = 0;
-            while (rs.next()) {
-                total++;
-            }
-            return total;
-
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
-        }
-        return null;
-    }
-
+    
 }
