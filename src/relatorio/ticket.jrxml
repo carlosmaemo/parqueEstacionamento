@@ -300,7 +300,7 @@
 					<font fontName="SansSerif" size="15" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Bairro Chingodzi]]></text>
+				<text><![CDATA[Bairro Matacuane]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="547" y="47" width="233" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="62503b0f-a51d-40e1-ace0-f544acd47096"/>
@@ -308,7 +308,7 @@
 					<font fontName="SansSerif" size="15" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
 					<paragraph lineSpacing="Single"/>
 				</textElement>
-				<text><![CDATA[Tete]]></text>
+				<text><![CDATA[Beira]]></text>
 			</staticText>
 			<staticText>
 				<reportElement mode="Transparent" x="547" y="65" width="233" height="19" forecolor="#000000" backcolor="#FFFFFF" uuid="e055cd18-cf88-4f03-817a-ec55ced37c79"/>

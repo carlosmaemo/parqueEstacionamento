@@ -87,7 +87,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
         setTitle("Cadastro de Funcionário");
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
@@ -386,7 +385,6 @@ public class CadastroFuncionario extends javax.swing.JFrame {
 
         jPanel3Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {alterar1, cadastrar1, remover1, remover2});
 
-        jPanel4.setBackground(new java.awt.Color(204, 255, 204));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         tbl_funcionarios_cadastrados.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
